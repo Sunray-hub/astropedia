@@ -1,0 +1,96 @@
+from flask import Flask, render_template, request
+import pyttsx3
+import os
+import wikipedia
+
+app = Flask(__name__)
+
+@app.route("/", methods=['GET', 'POST'])
+def index():
+    # Only generate speech if the file doesn't exist
+    if not os.path.exists("static/speech.mp3"):
+        text = ("Hello from Astropedia. This website fulfills your astronomy questions from user inputs and free Application Programming Interfaces. "
+                "As of now, user input has not been added, but it is a priority. When you are ready to search, just click the Go to Search page.")
+        engine = pyttsx3.init()
+        engine.save_to_file(text, "static/speech.mp3")
+        engine.runAndWait()
+
+    return render_template("index.html")
+
+@app.route("/search", methods=['GET', 'POST'])
+def search():
+    wikipedia.set_user_agent("AstropediaBot/1.0")
+    wiki = ""  
+    britanicalink = ""
+    planets = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"]
+    dwarf_planets = ["pluto" , "ceres", "eris", "haumea", "makemake"]
+
+    if request.method == "POST":
+        if not prompt:
+            wiki = "Please Input Something"
+
+        prompt = request.form["content"].strip()
+        for prefix in [
+    "what is a",
+    "what is an",
+    "what is the",
+    "what is",
+    "who is",
+    "who was",
+    "what was",
+    "what are",
+    "what were",
+    "tell me about",
+    "explain",
+    "define",
+    "give information about",
+    "i want to know about",
+    "i want information on",
+    "can you tell me about",
+    "could you explain",
+    "please explain",
+    "do you know about",
+    "what do you know about",
+    "explanation of",
+    "short note on",
+    "details of",
+    "something about",
+    "anything about"
+]:
+            if prompt.startswith(prefix):
+                prompt = prompt[len(prefix):].strip()
+                break
+        
+        britaprompt = prompt.strip().replace(" ", "-")
+        
+        
+        if prompt.lower() in planets:
+          prompt = prompt.capitalize() + "(planet)"
+          britaprompt = prompt.replace(" ", "-").replace("(planet)", "-planet")
+        else:
+          britaprompt = prompt.replace(" ", "-")
+        if prompt.lower() in dwarf_planets:
+            brit_prompt = prompt
+            brit_prompt = prompt.capitalize() + "-dwarf-planet"
+            britaprompt = brit_prompt.replace(" ", "-").replace("(dwarf planet)", "-dwarf-planet")
+            prompt = prompt.capitalize() + "(planet)"
+            
+
+
+        britanicalink = f"https://www.britannica.com/place/{britaprompt}"
+            
+        
+        try:
+                
+            wiki = wikipedia.summary(prompt, sentences=7)
+
+
+        except wikipedia.exceptions.DisambiguationError as e:
+            wiki = f"The prompt {prompt} is ambiguous. Please be more specific. Options include: {', '.join(e.options[:10])}... "
+        except wikipedia.exceptions.PageError:
+            wiki = f"No Wikipedia page found for '{prompt}'."
+
+    return render_template("search.html", ans=wiki, link=britanicalink)
+
+if __name__ == '__main__':
+    app.run(debug=True, port=3014)
