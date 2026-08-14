@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/static/a.ico" type="image/x-icon">
+  <title>Ida and Its Moon Dactyl</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+        * {
+      font-family: Arial, Helvetica, sans-serif;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #0b0c1a;
+      color: #ffffff;
+      line-height: 1.6;
+    }
+    #testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+
+    #page-content {
+      padding-top: 100px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #58a6ff;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: #b0c4de;
+      margin-top: 5px;
+    }
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #1c1e2b;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(88, 166, 255, 0.3);
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 5px; }
+    .main-image {
+      width: 100%;
+      height: auto;
+      margin-top: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+    .image-caption {
+      font-size: 0.9rem;
+      color: #aaaaaa;
+      margin-top: 5px;
+      text-align: center;
+      font-style: italic;
+    }
+    .equation {
+      background-color: #2e3440;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      font-family: monospace;
+      font-size: 0.95rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #888;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <nav id="testbar">
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+    <label class="logo">Astropedia</label>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/usersearch" class="active">Search</a></li>
+      <li><a href="/create">Create A Page</a></li>
+      <li><a href="/edit">Edit A Page</a></li>
+    </ul>
+  </nav>
+
+  <div id="page-content">
+    <header>
+      <h1>Ida and Its Moon Dactyl</h1>
+      <p class="subtitle">A unique binary asteroid system in the asteroid belt</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Introduction</h2>
+        <p>243 Ida is a rocky S-type asteroid located in the asteroid belt between Mars and Jupiter. Discovered in 1884, it was later visited by NASA's Galileo spacecraft in 1993. During this flyby, scientists were surprised to discover that Ida had a small natural satellite — named Dactyl — making it the first confirmed binary asteroid system in our solar system.</p>
+        <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/2023/09/i/ida_dactyl.jpg?w=905&h=655&fit=clip&crop=faces%2cfocalpoint" alt="Asteroid Ida and its moon Dactyl" class="main-image">
+        <p class="image-caption">Image credit: NASA - Ida and Dactyl (Galileo Mission, 1993)</p>
+      </section>
+
+      <section>
+        <h2>Facts About Ida</h2>
+        <ul>
+          <li>Type: S-type asteroid (silicate-rich)</li>
+          <li>Length: ~31.4 km</li>
+          <li>Orbital region: Main Asteroid Belt</li>
+          <li>Discovered: 1884 by Johann Palisa</li>
+          <li>Rotation period: 4.63 hours</li>
+          <li>Estimated mass: ~4.2 × 10<sup>16</sup> kg</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Discovery of Dactyl</h2>
+        <p>During Galileo's encounter with Ida on August 28, 1993, the probe captured images revealing a tiny satellite. This moon was officially named Dactyl in 1994. The discovery reshaped our understanding of asteroid systems, proving that even small bodies can host moons.</p>
+        <img src="https://nssdc.gsfc.nasa.gov/imgcat/midres/gal_0202562278.gif" alt="Closer view of Dactyl" class="main-image">
+        <p class="image-caption">A clearer view of Ida's moon Dactyl</p>
+      </section>
+
+      <section>
+        <h2>About Dactyl</h2>
+        <ul>
+          <li>Diameter: ~1.4 km</li>
+          <li>Orbital distance from Ida: ~90 km</li>
+          <li>Orbital period: ~20 hours</li>
+          <li>Surface composition: Possibly similar to Ida but slightly different reflectance</li>
+          <li>Name origin: Named after the Dactyls of Mount Ida in Greek mythology</li>
+        </ul>
+        <p>Dactyl is likely a fragment from an ancient collision. Its orbit is slightly inclined and elliptical, and its gravitational binding to Ida is relatively weak.</p>
+      </section>
+
+      <section>
+        <h2>Orbital Mechanics</h2>
+        <p>To calculate Dactyl’s orbit, astronomers use Kepler’s third law of planetary motion:</p>
+        <p style="color: #58a6ff;">\[ T^2 = \frac{4\pi^2 a^3}{G(M + m)} \]</p>
+        <p>
+          Where:<br>
+          <strong>T</strong> = orbital period<br>
+          <strong>a</strong> = semi-major axis (~90 km)<br>
+          <strong>M</strong> = mass of Ida (~4.2 × 10<sup>16</sup> kg)<br>
+          <strong>m</strong> = mass of Dactyl (negligible)<br>
+          <strong>G</strong> = gravitational constant (6.674×10<sup>−11</sup> m³·kg⁻¹·s⁻²)
+        </p>
+        <p>This relationship helps confirm Dactyl's orbit is gravitationally bound to Ida.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Dactyl_potential_orbits.svg/250px-Dactyl_potential_orbits.svg.png" alt="Orbit diagram of Dactyl around Ida" class="main-image">
+        <p class="image-caption">Schematic illustration of Dactyl’s orbit around Ida</p>
+      </section>
+
+      <section>
+        <h2>Scientific Importance</h2>
+        <p>The Ida-Dactyl system has greatly enhanced our understanding of small body dynamics. Its discovery:</p>
+        <ul>
+          <li>Confirmed that small asteroids can retain moons</li>
+          <li>Revealed evidence of asteroid fragmentation and complex collision history</li>
+          <li>Provided insight into how binary systems may evolve or break apart</li>
+        </ul>
+        <p>It also opened up new questions about how widespread such systems might be and how they influence asteroid belt evolution.</p>
+      </section>
+
+      <section>
+        <h2>Fun Fact: Did You Know?</h2>
+        <p>Galileo's discovery of Dactyl was completely unplanned — the images revealing the moon were not noticed until months after the flyby, during data review!</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 | Written by Astropedia | All rights reserved</p>
+    </footer>
+  </div>
+</body>
+</html>

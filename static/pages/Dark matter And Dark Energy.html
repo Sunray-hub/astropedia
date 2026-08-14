@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/a.ico" type="image/x-icon">
+    <title>Dark_matter___dark_energy</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        #testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container div for page content with top padding so content is not hidden behind navbar */
+        #page-content {
+            padding-top: 100px;
+            
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <style>    body {
+
+      margin: 0;
+
+      padding: 30px 20px;
+
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+      background-color: #0d1117;
+
+      color: #e6edf3;
+
+      line-height: 1.7;
+
+    }
+
+
+
+    main {
+
+      max-width: 800px;
+
+      margin: auto;
+
+    }
+
+
+
+    h1 {
+
+      font-size: 2.4em;
+
+      color: #58a6ff;
+
+      margin-bottom: 10px;
+
+    }
+
+
+
+    h2 {
+
+      color: #79c0ff;
+
+      margin-top: 40px;
+
+    }
+
+
+
+    h3 {
+
+      color: #a5d6ff;
+
+      margin-top: 20px;
+
+    }
+
+
+
+    p {
+
+      margin-bottom: 20px;
+
+    }
+
+
+
+    footer {
+
+      margin-top: 60px;
+
+      text-align: center;
+
+      color: #58a6ff;
+
+      font-size: 0.9em;
+
+      padding: 20px;
+
+      border-top: 1px solid #30363d;
+
+    }
+
+
+
+    @media (max-width: 600px) {
+
+      body {
+
+        padding: 20px 15px;
+
+      }
+
+
+
+      h1 {
+
+        font-size: 1.8em;
+
+      }
+
+    } </style>
+</head>
+<body>
+  <nav id="testbar">
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+    <label class="logo">Astropedia</label>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/usersearch" class="active">Search</a></li>
+      <li><a href="/create">Create A Page</a></li>
+      <li><a href="/edit">Edit A Page</a></li>
+    </ul>
+  </nav>
+
+
+    <div id="page-content">
+        <h1>🌌 The Mysteries of Dark Matter and Dark Energy</h1>
+
+
+
+    <section>
+
+      <h2>Introduction</h2>
+
+      <p>
+
+        When we gaze into the night sky, we see only a small fraction of the universe’s true content. Stars, planets, gas, and dust—all forms of visible matter—make up just 5% of the cosmos. The rest remains largely invisible and mysterious. This unseen majority is composed of dark matter and dark energy, two of the greatest enigmas in modern cosmology. Scientists know they exist because of the effects they have on the universe, yet their true nature remains unknown.
+
+      </p>
+
+    </section>
+
+
+
+    <section>
+
+      <h2>Dark Matter: The Hidden Framework</h2>
+
+      <p>
+
+        Dark matter is a form of matter that does not emit, absorb, or reflect light. It cannot be seen directly, but it reveals its presence through gravity. Galaxies would not be able to hold together without the additional gravitational force provided by dark matter.
+
+      </p>
+
+
+
+      <h3>Discovery and Evidence</h3>
+
+      <p>
+
+        In the 1930s, Swiss astronomer Fritz Zwicky observed that galaxies within the Coma Cluster were moving too quickly to be held together by visible matter alone. He hypothesized the existence of "missing mass" — what we now call dark matter. Later, in the 1970s, Vera Rubin’s work on spiral galaxies confirmed that stars on the outer edges orbit just as fast as those near the center, defying Newtonian predictions unless an invisible mass was present.
+
+      </p>
+
+
+
+      <h3>Gravitational Lensing</h3>
+
+      <p>
+
+        Light from distant galaxies bends as it passes massive objects—a phenomenon known as gravitational lensing. Astronomers observe lensing even in places with little visible matter, suggesting the presence of dark matter exerting gravitational pull.
+
+      </p>
+
+
+
+      <h3>Candidates for Dark Matter</h3>
+
+      <p>
+
+        Several theories attempt to explain what dark matter is made of. Leading candidates include WIMPs (Weakly Interacting Massive Particles), axions, and sterile neutrinos. However, despite decades of experiments, no direct detection has yet been confirmed.
+
+      </p>
+
+    </section>
+
+
+
+    <section>
+
+      <h2>Dark Energy: The Driver of Expansion</h2>
+
+      <p>
+
+        In 1998, observations of Type Ia supernovae revealed that the universe's expansion is accelerating. This was unexpected — gravity should have been slowing it down. To explain this, scientists proposed the existence of dark energy, a force or field that causes space to expand faster over time.
+
+      </p>
+
+
+
+      <h3>Nature and Role</h3>
+
+      <p>
+
+        Dark energy is not just a cosmic curiosity—it dominates the energy content of the universe, accounting for about 68%. It’s possibly a property of space itself, described by the "cosmological constant" in Einstein’s equations, or it may be something dynamic, like a new energy field.
+
+      </p>
+
+
+
+      <h3>Expansion Scenarios</h3>
+
+      <p>
+
+        The presence and behavior of dark energy determine the fate of the universe. If it remains constant, the universe will undergo a "Big Freeze," becoming cold and dark over trillions of years. If dark energy grows stronger, it could tear the universe apart in a "Big Rip." If it weakens, the universe might eventually collapse in a "Big Crunch."
+
+      </p>
+
+    </section>
+
+
+
+    <section>
+
+      <h2>The Dark Universe</h2>
+
+      <p>
+
+        Combined, dark matter and dark energy make up 95% of the cosmos, yet remain undetected directly. They play critical roles: dark matter acts as the cosmic scaffolding for galaxies and clusters, while dark energy governs the universe’s large-scale behavior. Understanding them is key to unlocking the full story of our universe—from its birth to its possible endings.
+
+      </p>
+
+
+
+      <h3>Cosmic Microwave Background</h3>
+
+      <p>
+
+        The cosmic microwave background (CMB), the afterglow of the Big Bang, provides a snapshot of the early universe. Tiny fluctuations in the CMB help scientists infer the amount and distribution of dark matter and dark energy.
+
+      </p>
+
+
+
+      <h3>Ongoing Research</h3>
+
+      <p>
+
+        Scientists around the world are working on dark matter detectors deep underground, satellite missions like the European Space Agency’s <strong>Euclid</strong>, and surveys such as the Vera Rubin Observatory. With every discovery, we inch closer to understanding the dark side of the universe.
+
+      </p>
+
+    </section>
+
+
+
+    <section>
+
+      <h2>Conclusion</h2>
+
+      <p>
+
+        The universe is more mysterious than we ever imagined. Though we have made incredible progress, most of what exists remains hidden from view. Dark matter and dark energy challenge our understanding of physics, space, and time itself. As we build better instruments and refine our theories, we may one day illuminate the unseen and reshape humanity’s place in the cosmos.
+
+      </p>
+
+    </section>
+
+
+
+    <footer>
+
+      &copy; 2025 | Written by Astropedia | All rights reserved
+
+    </footer>
+    </div>
+
+</body>
+</html>

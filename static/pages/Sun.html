@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sun</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+      <link rel="icon" href="static/A.ico" type="image/x-icon">
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        #testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container div for page content with top padding so content is not hidden behind navbar */
+        #page-content {
+            padding-top: 100px;
+            
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <style> body {
+
+    font-family: Arial, sans-serif;
+
+    line-height: 1.6;
+
+    margin: 20px auto;
+
+    max-width: 900px;
+
+    background: #fff8dc;
+
+    color: #333;
+
+  }
+
+  h1, h2, h3 {
+
+    color: #cc5500;
+
+  }
+
+  img {
+
+    max-width: 100%;
+
+    display: block;
+
+    margin: 15px auto;
+
+    border-radius: 8px;
+
+  }
+
+  figure {
+
+    margin: 1.5em 0;
+
+    text-align: center;
+
+  }
+
+  figcaption {
+
+    font-size: 0.9em;
+
+    color: #666;
+
+  }
+
+  pre {
+
+    background: #f4f4f4;
+
+    padding: 10px;
+
+    overflow-x: auto;
+
+  }
+
+  .equation {
+
+    text-align: center;
+
+    font-size: 1.2em;
+
+    margin: 20px 0;
+
+  }
+
+  a {
+
+    color: #cc5500;
+
+  } </style> 
+
+
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script id="MathJax-script" async
+
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href='/news'>News</a></li>
+        <li><a href='/usersearch' class="active">Search</a></li>
+        <li><a href='/create'>Create A Page</a></li>
+        <li><a href='/edit'>Edit A Page</a></li>
+    </ul>
+</nav>
+    <div id="page-content">
+
+<h1>The Sun – Our Star</h1>
+
+<p>The Sun is the star at the center of our Solar System. It is a nearly perfect sphere of hot plasma, heated to incandescence by nuclear fusion reactions in its core, radiating energy mainly as visible light, ultraviolet light, and infrared radiation. This energy sustains life on Earth and drives our planet’s climate and weather.</p>
+
+<figure>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Solar_sys8.jpg" alt="The Sun with planets" />
+  <figcaption>Figure 1: The Sun and the eight planets of the Solar System (artist’s impression).</figcaption>
+</figure>
+
+<h2>1. Basic Facts About the Sun</h2>
+<ul>
+  <li><strong>Diameter:</strong> About 1.39 million kilometers (109 times Earth's diameter)</li>
+  <li><strong>Mass:</strong> 1.989 × 10<sup>30</sup> kilograms (about 330,000 times Earth's mass)</li>
+  <li><strong>Composition:</strong> Approximately 74% hydrogen, 24% helium, and 2% heavier elements by mass</li>
+  <li><strong>Surface Temperature:</strong> Around 5,778 K (5,505 °C)</li>
+  <li><strong>Core Temperature:</strong> Approximately 15 million K</li>
+  <li><strong>Age:</strong> About 4.6 billion years</li>
+  <li><strong>Distance from Earth:</strong> Approximately 149.6 million kilometers (1 astronomical unit, AU)</li>
+  <li><strong>Rotation:</strong> The Sun rotates differentially, with an average rotation period of about 25 days at the equator and about 35 days near the poles.</li>
+</ul>
+
+<p>Despite its enormous size, the Sun is considered a medium-sized star, classified as a G-type main-sequence star (G2V). It is a fairly ordinary star among the billions in the Milky Way, but it is uniquely important to us as the central driver of life and climate on Earth.</p>
+
+<h2>2. Structure of the Sun</h2>
+<p>The Sun’s structure can be divided into several layers, each with distinct characteristics and roles:</p>
+
+<h3>2.1 Core</h3>
+<p>The core is the powerhouse of the Sun. It extends from the center out to about 20-25% of the solar radius. Within the core, temperatures reach around 15 million Kelvin, and pressures are immense—millions of times Earth's atmospheric pressure. These extreme conditions allow nuclear fusion reactions to occur, converting hydrogen into helium and releasing massive amounts of energy.</p>
+<p>The energy generated in the core takes thousands to millions of years to reach the surface due to countless absorptions and re-emissions.</p>
+
+<h3>2.2 Radiative Zone</h3>
+<p>The radiative zone surrounds the core and extends outward to about 70% of the solar radius. In this region, energy moves outward primarily by the process of radiative diffusion. Photons generated in the core are absorbed and re-emitted by ions, causing a slow migration outward. This zone is incredibly dense and hot, making it opaque to most forms of radiation.</p>
+
+<h3>2.3 Convective Zone</h3>
+<p>Beyond the radiative zone lies the convective zone, extending to the Sun’s surface. Here, the temperature drops enough that gases become less ionized, and convection becomes the dominant form of energy transport. Hot plasma rises toward the surface, cools, and sinks back down, forming convection cells known as granules visible in high-resolution solar images.</p>
+
+<h3>2.4 Photosphere</h3>
+<p>The photosphere is the visible “surface” of the Sun. Although technically not a solid surface, it is the layer from which most visible light escapes into space. The photosphere is only about 500 kilometers thick, with a temperature averaging around 5,778 K. Sunspots, prominences, and solar flares often originate near or at this level.</p>
+
+<h3>2.5 Chromosphere</h3>
+<p>Just above the photosphere is the chromosphere, a layer about 2,000 kilometers thick. It is typically visible during total solar eclipses as a reddish glow, caused by the emission of hydrogen alpha light. Temperatures in the chromosphere increase with altitude, reaching up to 20,000 K.</p>
+
+<h3>2.6 Corona</h3>
+<p>The corona is the Sun's outer atmosphere, extending millions of kilometers into space. It has temperatures soaring to several million Kelvin, far hotter than the underlying layers—a phenomenon still under study. The corona’s low density causes it to emit light mostly in X-rays and ultraviolet. It is visible as a white halo during solar eclipses.</p>
+
+<h2>3. Nuclear Fusion in the Sun's Core</h2>
+<p>The Sun's energy production is powered by nuclear fusion, specifically the proton-proton chain reaction. In this process, hydrogen nuclei (protons) collide and fuse to form helium, releasing energy in the form of photons, positrons, and neutrinos. This energy sustains the Sun’s luminosity and warmth for billions of years.</p>
+
+<p>Fusion occurs only in the core where the temperature and pressure are sufficient to overcome the electrostatic repulsion between positively charged protons.</p>
+
+<h3>Energy Transport</h3>
+<p>The energy generated by fusion moves from the core outward through the radiative and convective zones, before finally radiating into space as sunlight.</p>
+
+<h2>4. Solar Atmosphere and Solar Wind</h2>
+
+<h3>4.1 The Solar Atmosphere</h3>
+<p>The solar atmosphere consists of the photosphere, chromosphere, and corona. The corona is not well understood, especially how it becomes so hot compared to the layers below. Scientists propose magnetic reconnection—where magnetic field lines snap and realign releasing energy—and wave heating as possible mechanisms.</p>
+
+<h3>4.2 Solar Wind</h3>
+<p>The solar wind is a continuous flow of charged particles—mostly electrons and protons—ejected from the corona at high speeds. It travels through the Solar System, shaping planetary magnetospheres and contributing to phenomena such as auroras on Earth. Variations in solar wind can cause geomagnetic storms that affect satellites, communication, and power grids on Earth.</p>
+
+<h2>5. Sunspots, Solar Flares, and Magnetic Activity</h2>
+<p>Sunspots are temporary, cooler, and darker regions caused by strong magnetic fields inhibiting convection. They usually appear in pairs with opposite magnetic polarity and vary in size and lifespan. Their number waxes and wanes with the solar cycle.</p>
+
+<p>Solar flares are intense bursts of radiation caused by magnetic energy release near sunspots. They can emit X-rays and ultraviolet radiation, sometimes accompanied by coronal mass ejections (CMEs)—huge bubbles of solar plasma released into space.</p>
+
+<p>This solar magnetic activity follows approximately an 11-year cycle, where solar maximum periods exhibit high sunspot and flare counts, while solar minimum periods are relatively quiet.</p>
+
+<h2>6. The Sun’s Life Cycle and Evolution</h2>
+<p>The Sun is a middle-aged star currently in the stable phase of hydrogen fusion. In about 5 billion years, as hydrogen in the core is exhausted, the core will contract and heat up, while the outer layers expand dramatically, turning the Sun into a red giant.</p>
+
+<p>During this phase, the Sun will engulf the inner planets, including potentially Earth. Eventually, it will shed its outer layers, creating a planetary nebula, and the core will become a white dwarf—a dense, slowly cooling remnant of carbon and oxygen.</p>
+
+<h2>7. Mathematical Models and Equations</h2>
+
+<h3>7.1 Hydrostatic Equilibrium</h3>
+<p>The Sun’s structure is maintained by a delicate balance called hydrostatic equilibrium, where the outward pressure from hot plasma balances the inward pull of gravity. This balance ensures the Sun remains stable over billions of years.</p>
+<p>The Sun’s structure is maintained by hydrostatic equilibrium, given by the equation:</p>
+<p>
+  \[
+  \frac{dP}{dr} = - \frac{G M(r) \rho(r)}{r^2}
+  \]</p>
+
+
+<h3>7.2 Stefan-Boltzmann Law</h3>
+<p>The relationship between the Sun’s temperature, size, and brightness is governed by the Stefan-Boltzmann law, which states that a black body’s luminosity increases with the fourth power of its temperature.
+</p>
+<p>The Stefan-Boltzmann law states:</p>
+<p>
+  \[
+  L = 4 \pi R^2 \sigma T^4
+  \]
+</p>
+<p>where \( L \) is the luminosity, \( R \) is the radius of the Sun, \( \sigma \) is the Stefan-Boltzmann constant, and \( T \) is the effective temperature.</p>
+
+
+<h2>8. Observing the Sun</h2>
+<p>Modern solar observations employ spacecraft and ground-based telescopes equipped with instruments sensitive to various wavelengths, from visible light to X-rays and radio waves. Observatories like NASA’s Solar Dynamics Observatory (SDO) and the Parker Solar Probe provide detailed images and data revealing the Sun’s complex behavior.</p>
+
+<p>Observing the Sun requires special filters or instruments to avoid eye damage. Solar telescopes use narrowband filters to study phenomena like sunspots, prominences, and flares in specific wavelengths.</p>
+
+<h2>9. Importance of the Sun to Earth</h2>
+<p>The Sun is fundamental to life on Earth. It drives photosynthesis, enabling plants to produce oxygen and energy-rich molecules that form the base of most food chains. The Sun’s energy influences Earth’s weather and climate systems, shaping ecosystems globally.</p>
+
+<p>Additionally, solar radiation affects the ionosphere, which is crucial for radio communication and GPS technology.</p>
+
+<h2>10. Space Weather and Its Effects on Technology</h2>
+<p>Solar activity can produce space weather events, such as solar flares and CMEs, which can disrupt satellites, power grids, and communication systems on Earth. Monitoring and predicting solar activity is vital to protect technology and infrastructure.</p>
+
+<p>Geomagnetic storms induced by solar wind can cause auroras but also pose risks to astronauts and spacecraft.</p>
+
+<h2>11. The Sun in Culture and History</h2>
+<p>Since ancient times, the Sun has been revered in cultures worldwide as a symbol of life, power, and divinity. Many mythologies include sun gods or solar deities. The study of the Sun helped shape early astronomy and calendars, influencing agriculture and navigation.</p>
+
+<p>In modern times, solar energy is harnessed as a clean renewable power source, emphasizing the continuing importance of our star.</p>
+
+<h2>References and Further Reading</h2>
+<ul>
+  <li><a href="https://solarscience.msfc.nasa.gov/">NASA Solar Science</a></li>
+  <li><a href="https://en.wikipedia.org/wiki/Sun">Wikipedia: The Sun</a></li>
+  <li><a href="https://www.nasa.gov/sun">NASA Sun Page</a></li>
+  <li><a href="https://www.britannica.com/place/Sun">Encyclopedia Britannica: Sun</a></li>
+  <li><a href="https://www.space.com/topics/sun">Space.com: Sun</a></li>
+</ul>
+    </div>
+
+</body>
+</html>

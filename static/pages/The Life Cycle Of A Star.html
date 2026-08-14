@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/a.ico" type="image/x-icon">
+    <title>The_Life_Cycle_of_a_Star</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        #testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container div for page content with top padding so content is not hidden behind navbar */
+        #page-content {
+            padding-top: 100px;
+            
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <style> body {
+
+  font-family: Arial, sans-serif;
+
+  line-height: 1.8;
+
+  margin: 0;
+
+  padding: 0;
+
+  background: #0b0c1e;
+
+  color: #f5f5f5;
+
+}
+
+
+
+.container {
+
+  max-width: 800px;
+
+  margin: 40px auto;
+
+  padding: 20px;
+
+  background-color: #1a1b3c;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+
+}
+
+
+
+h1 {
+
+  font-size: 2.5em;
+
+  color: #ffa500;
+
+  margin-bottom: 20px;
+
+  text-align: center;
+
+}
+
+
+
+h2 {
+
+  font-size: 1.8em;
+
+  color: #87cefa;
+
+  margin-top: 30px;
+
+  border-left: 5px solid #ffa500;
+
+  padding-left: 10px;
+
+}
+
+
+
+p {
+
+  font-size: 1.1em;
+
+  margin-top: 10px;
+
+  text-align: justify;
+
+}
+
+
+
+section {
+
+  margin-bottom: 30px;
+
+} </style>
+</head>
+<body>
+    <nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href='/news'>News</a></li>
+        <li><a href='/usersearch' class="active">Search</a></li>
+        <li><a href='/create'>Create A Page</a></li>
+        <li><a href='/edit'>Edit A Page</a></li>
+    </ul>
+</nav>
+    <!-- The_Life_Cycle_of_a_Star -->
+
+  <div class="container">
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg/1135px-Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg" 
+      alt="Starry Night Sky" 
+      style="width: 100%; border-radius: 10px; margin-bottom: 20px;"
+    />
+
+    <h1>The Life Cycle of a Star</h1>
+    
+    <section>
+      <h2>Introduction</h2>
+      <p>Stars are massive, glowing spheres of plasma held together by gravity. They are born, live out their lives, and eventually die in spectacular ways. The life cycle of a star depends on its mass, and it can span millions to billions of years. This article walks through the fascinating journey of a star from its birth in a nebula to its dramatic death.</p>
+    </section>
+
+    <section>
+      <h2>1. Stellar Nursery – Nebula</h2>
+      <p>All stars begin their lives in giant clouds of gas and dust known as nebulae. These regions of space are cold and dense, and under the influence of gravity, the gas and dust start to clump together. As these clumps grow in mass, their gravitational pull increases, attracting more material and heating up in the process.</p>
+    </section>
+
+    <section>
+      <h2>2. Protostar Formation</h2>
+      <p>As the clump collapses under its own gravity, it forms a protostar. At this stage, the core temperature rises but nuclear fusion hasn't yet begun. This period can last for millions of years. The protostar shines with the heat of compression and friction, glowing in infrared wavelengths.</p>
+    </section>
+
+    <section>
+      <h2>3. Main Sequence Star</h2>
+      <p>When the core temperature reaches about 10 million Kelvin, nuclear fusion ignites. Hydrogen atoms begin to fuse into helium, releasing an enormous amount of energy. The star enters the main sequence phase, where it will spend most of its life. Our Sun is currently a main sequence star, estimated to be about halfway through its 10-billion-year lifespan.</p>
+    </section>
+
+    <section>
+      <h2>4. Red Giant or Supergiant</h2>
+      <p>Once a star exhausts its hydrogen fuel, fusion slows down, and the core contracts under gravity. This causes the outer layers to expand and cool, turning the star into a red giant (for low to medium mass stars) or a red supergiant (for massive stars). The core begins fusing helium into heavier elements like carbon and oxygen.</p>
+    </section>
+
+    <section>
+      <h2>5. The Star's Death</h2>
+      <p>The fate of the star depends on its mass. For stars like our Sun, the outer layers are shed, forming a planetary nebula, while the core becomes a white dwarf. For massive stars, fusion continues until iron is formed in the core. Iron cannot fuse, causing the core to collapse rapidly, resulting in a spectacular supernova explosion.</p>
+    </section>
+
+    <section>
+      <h2>6. Stellar Remnants</h2>
+      <p>What remains after a supernova can be a neutron star or a black hole, depending on the mass of the core. Neutron stars are incredibly dense and small, while black holes have such strong gravity that not even light can escape. White dwarfs, on the other hand, cool slowly over billions of years, eventually becoming black dwarfs — though the universe is not old enough for any to exist yet.</p>
+    </section>
+
+    <section>
+      <h2>Conclusion</h2>
+      <p>The life cycle of a star is a dramatic and fascinating process that spans millions or billions of years. From a dark, cold nebula to a dazzling supernova or a quiet white dwarf, stars are born and die in a cosmic dance that continually recycles matter throughout the universe. Understanding this cycle not only helps us know more about our own Sun but also reveals the dynamic and ever-changing nature of the cosmos.</p>
+    </section>
+  </div>
+  <p>&copy; 2025 | Written by Astropedia | All rights reserved</p>
+
+</body>
+</html>

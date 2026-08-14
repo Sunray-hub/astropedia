@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saturn</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+      <link rel="icon" href="static/A.ico" type="image/x-icon">
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+#testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container div for page content with top padding so content is not hidden behind navbar */
+        #page-content {
+            padding-top: 100px;
+            
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <style>
+
+  body {
+
+    font-family: Arial, sans-serif;
+
+    margin: 20px;
+
+    background: #f9fbfd;
+
+    color: #222;
+
+    line-height: 1.6;
+
+  }
+
+  h1, h2, h3 {
+
+    color: #2c3e50;
+
+  }
+
+  h1 {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+  }
+
+  h2 {
+
+    border-bottom: 3px solid #3498db;
+
+    padding-bottom: 8px;
+
+    margin-top: 50px;
+
+  }
+
+  h3 {
+
+    margin-top: 30px;
+
+    color: #2980b9;
+
+  }
+
+  p, ul {
+
+    max-width: 850px;
+
+  }
+
+  ul {
+
+    margin-left: 40px;
+
+    margin-bottom: 20px;
+
+  }
+
+  table {
+
+    border-collapse: collapse;
+
+    width: 80%;
+
+    max-width: 850px;
+
+    margin: 20px 0;
+
+  }
+
+  th, td {
+
+    border: 1px solid #bbb;
+
+    padding: 10px 15px;
+
+    text-align: left;
+
+  }
+
+  th {
+
+    background-color: #3498db;
+
+    color: white;
+
+  }
+
+  details {
+
+    background-color: #dbe9f4;
+
+    border-radius: 6px;
+
+    padding: 15px 20px;
+
+    margin-top: 25px;
+
+    max-width: 850px;
+
+  }
+  a{
+    transition: .5s;
+  }
+
+  summary {
+
+    font-weight: bold;
+
+    font-size: 1.15em;
+
+    cursor: pointer;
+
+    color: #2c3e50;
+
+    user-select: none;
+
+  }
+  #moons{
+    font-size: 48px;
+    color: rgb(0, 242, 202);
+    text-align: center;
+
+  }
+  #moons:hover{
+    cursor: pointer;
+    background-color: white;
+    text-decoration: underline;
+    transition: .5s;
+  }
+
+  img {
+
+    max-width: 850px;
+
+    margin: 20px 0;
+
+    border-radius: 8px;
+
+  }
+
+  .equation {
+
+    max-width: 850px;
+
+    background-color: #eef6fb;
+
+    border-left: 4px solid #3498db;
+
+    padding: 12px 18px;
+
+    margin: 30px 0;
+
+    font-size: 1.1em;
+
+  }
+
+</style>
+
+
+
+<!-- MathJax -->
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+<script id="MathJax-script" async
+
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+</head>
+<body>
+    <nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href='/news'>News</a></li>
+        <li><a href='/usersearch' class="active">Search</a></li>
+        <li><a href='/create'>Create A Page</a></li>
+        <li><a href='/edit'>Edit A Page</a></li>
+    </ul>
+</nav>
+    <div id="page-content">
+        <h1>Saturn: The Ringed Giant Planet</h1>
+
+
+
+<h2>Introduction</h2>
+
+<p>
+
+Saturn is the sixth planet from the Sun and the second-largest planet in our Solar System after Jupiter. It is famous for its extensive and bright ring system, composed primarily of ice particles, rocky debris, and dust. Saturn is a gas giant with a thick atmosphere dominated by hydrogen and helium, and it hosts a vast collection of moons — 274 confirmed as of now.
+
+</p>
+
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg" alt="Saturn during Equinox" />
+
+
+
+<h2>Physical Characteristics</h2>
+
+<p>
+
+Saturn is classified as a gas giant and lacks a well-defined solid surface. It has an equatorial diameter of about 120,536 kilometers, which is about 9.5 times that of Earth, and a mean density less than water, meaning it would float if placed in a large enough ocean.
+
+</p>
+
+
+
+<table>
+
+  <thead>
+
+    <tr><th>Property</th><th>Value</th></tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr><td>Equatorial Diameter</td><td>120,536 km</td></tr>
+
+    <tr><td>Polar Diameter</td><td>108,728 km</td></tr>
+
+    <tr><td>Mass</td><td>5.683 × 10<sup>26</sup> kg (95 Earth masses)</td></tr>
+
+    <tr><td>Density</td><td>0.687 g/cm<sup>3</sup></td></tr>
+
+    <tr><td>Rotation Period</td><td>~10 hours 33 minutes</td></tr>
+
+    <tr><td>Orbital Period</td><td>29.46 Earth years</td></tr>
+
+  </tbody>
+
+</table>
+
+
+
+<h2>Atmosphere</h2>
+
+
+
+<h3>Cloud Decks and Structure</h3>
+
+<p>
+
+Saturn’s atmosphere consists of thick layers of clouds formed primarily from ammonia ice, ammonium hydrosulfide, and water ice. The cloud decks create visible bands and storms with complex weather patterns.
+
+</p>
+
+
+
+<ul>
+
+  <li><strong>Upper Clouds:</strong> Ammonia ice crystals forming white clouds at about 120 K.</li>
+
+  <li><strong>Middle Clouds:</strong> Ammonium hydrosulfide clouds, responsible for the yellowish-brown hues.</li>
+
+  <li><strong>Lower Clouds:</strong> Water ice clouds deep within the atmosphere.</li>
+
+</ul>
+
+
+
+<img src="https://lh3.googleusercontent.com/proxy/57q70ZdP6x02L_brc77VvX7z2E92X1rQERs6wW1Jm9rFrUEPYJoxFWNfWsWFkLc0aV86DC5c-IGqL7GoqOoiRyVQv_fhO0sfakiXu4rScgE4gVM8XJQrGSQusXh_PHUDtw" alt="Saturn Cloud Layers" />
+
+
+
+<h3>Atmospheric Composition</h3>
+
+<table>
+
+  <thead><tr><th>Component</th><th>Volume %</th></tr></thead>
+
+  <tbody>
+
+    <tr><td>Hydrogen (H<sub>2</sub>)</td><td>96%</td></tr>
+
+    <tr><td>Helium (He)</td><td>3%</td></tr>
+
+    <tr><td>Methane (CH<sub>4</sub>)</td><td>0.4%</td></tr>
+
+    <tr><td>Ammonia (NH<sub>3</sub>)</td><td>Trace</td></tr>
+
+    <tr><td>Other gases (ethane, phosphine, water vapor)</td><td>Trace</td></tr>
+
+  </tbody>
+
+</table>
+
+
+
+<div class="equation">
+
+  <p><strong>Ideal Gas Law in Saturn’s Atmosphere:</strong></p>
+
+  <p>
+
+    \[
+
+      P = \rho R T
+
+    \]
+
+  </p>
+
+  <p>Where:<br/>
+
+    \(P\) = Pressure<br/>
+
+    \(\rho\) = Density<br/>
+
+    \(R\) = Specific gas constant<br/>
+
+    \(T\) = Temperature
+
+  </p>
+
+</div>
+
+
+
+<h2>Rings of Saturn</h2>
+
+<p>
+
+Saturn’s rings are its most iconic feature, made of countless particles ranging from micrometers to meters in size, primarily composed of water ice with traces of rock and dust.
+
+</p>
+
+
+
+<ul>
+
+  <li><strong>Main Rings:</strong> Rings A, B, and C are the brightest and most massive, visible even from Earth-based telescopes.</li>
+
+  <li><strong>Fainter Rings:</strong> Rings D, E, G, and others are fainter and more diffuse.</li>
+
+  <li><strong>Ring Gaps:</strong> The Cassini Division and Encke Gap are prominent gaps caused by gravitational resonances with moons.</li>
+
+</ul>
+
+
+
+<img src="https://images.indianexpress.com/2019/04/saturn-nasa-759.jpg" alt="Saturn Rings" />
+
+
+
+<h2>Magnetic Field</h2>
+
+<p>
+
+Saturn has a powerful magnetic field generated by metallic hydrogen deep inside the planet. This field is slightly weaker than Jupiter’s but extends far beyond Saturn, creating a large magnetosphere that interacts with the solar wind.
+
+</p>
+
+
+
+<ul>
+
+  <li>Magnetic field strength at the equator: ~0.2 Gauss</li>
+
+  <li>Magnetosphere shaped by solar wind pressure and rotation</li>
+
+  <li>Source of intense radio emissions and auroras near poles</li>
+
+</ul>
+
+
+
+<h2>Moons of Saturn</h2>
+
+<p>
+
+Saturn hosts 274 confirmed moons, ranging from tiny moonlets within the rings to large moons with atmospheres and geological activity. The moons are categorized into groups based on their orbits and characteristics.
+
+</p>
+
+
+
+<details>
+
+  <summary>View All 274 Confirmed Moons of Saturn</summary>
+
+
+
+  <details>
+
+    <summary>Ring Moons (7)</summary>
+
+    <ul>
+
+      <li>Pan</li>
+
+      <li>Daphnis</li>
+
+      <li>Atlas</li>
+
+      <li>Prometheus</li>
+
+      <li>Pandora</li>
+
+      <li>Epimetheus</li>
+
+      <li>Janus</li>
+
+    </ul>
+
+  </details>
+
+
+
+  <details>
+
+    <summary>Inner Large Moons (7)</summary>
+
+    <ul>
+
+      <li>Mimas</li>
+
+      <li>Enceladus</li>
+
+      <li>Tethys</li>
+
+      <li>Dione</li>
+
+      <li>Rhea</li>
+
+      <li>Titan</li>
+
+      <li>Iapetus</li>
+
+    </ul>
+
+  </details>
+
+
+
+  <details>
+
+    <summary>Outer Irregular Moons (260+)</summary>
+
+    <p>Due to their large number, here are the irregular moons grouped by orbital direction:</p>
+
+
+
+    <details>
+
+      <summary>Prograde Irregular Moons (~70)</summary>
+
+      <ul>
+
+        <li>Albiorix</li>
+
+        <li>Bebhionn</li>
+
+        <li>Erriapus</li>
+
+        <li>Tarvos</li>
+
+        <li>Skathi</li>
+
+        <li>and many more...</li>
+
+      </ul>
+
+    </details>
+
+
+
+    <details>
+
+      <summary>Retrograde Irregular Moons (~190)</summary>
+
+      <ul>
+
+        <li>Phoebe</li>
+
+        <li>Ymir</li>
+
+        <li>Paaliaq</li>
+
+        <li>Suttungr</li>
+
+        <li>Kiviuq</li>
+
+        <li>and many more...</li>
+
+      </ul>
+
+    </details>
+
+
+
+  </details>
+
+
+
+</details>
+<a href="https://science.nasa.gov/saturn/moons/" id="moons"> All Moons </a>
+
+
+
+<h2>Exploration History</h2>
+
+<p>
+
+Humans have studied Saturn for centuries, with major milestones including:
+
+</p>
+
+
+
+<ul>
+
+  <li><strong>Galileo Galilei (1610):</strong> First recorded observation of Saturn's rings (though he thought they were ears or handles).</li>
+
+  <li><strong>Christiaan Huygens (1655):</strong> Correctly described Saturn's rings and discovered Titan.</li>
+
+  <li><strong>Cassini-Huygens Mission (1997-2017):</strong> NASA’s flagship mission sent an orbiter and a lander, dramatically increasing knowledge of Saturn, its rings, and moons like Titan and Enceladus.</li>
+
+  <li><strong>Voyager 1 and 2 (1980s):</strong> Provided detailed images and data on Saturn’s atmosphere, rings, and moons.</li>
+
+</ul>
+
+
+
+<img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2004/06/cassini_approaches_saturn/9830950-3-eng-GB/Cassini_approaches_Saturn_pillars.jpg" alt="Cassini spacecraft orbiting Saturn" />
+    </div>
+
+</body>
+</html>

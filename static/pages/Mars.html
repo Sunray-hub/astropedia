@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mars - The Red Planet</title>
+  <link rel="icon" href="/static/a.ico" type="image/x-icon" />
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #0e0e0e;
+      color: #e0e0e0;
+    }
+
+    #testbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #1f1f1f;
+      padding: 10px;
+      border-bottom: 2px solid #f26a4b;
+    }
+
+    #testbar a {
+      background-color: #2a2a2a;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    #testbar a:hover {
+      background-color: #f26a4b;
+    }
+
+    #page-content {
+      max-width: 900px;
+      margin: auto;
+      padding: 30px 20px;
+    }
+
+    h1, h2 {
+      color: #f26a4b;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid #333;
+      margin: 15px 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      color: #aaa;
+      font-size: 0.9em;
+      margin-top: 40px;
+    }
+
+    code {
+      background: #222;
+      padding: 2px 4px;
+      border-radius: 3px;
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+  <nav id="testbar">
+    <a href="/">Home</a>
+    <a href="/news">News</a>
+    <a href="/search">Search</a>
+    <a href="/create">Create A Page</a>
+    <a href="/edit">Edit A Page</a>
+  </nav>
+
+  <div id="page-content">
+    <main>
+      <h1>The Red Planet: Mars</h1>
+      <p>Unveiling the mysteries of Earth's next-door neighbour</p>
+      <img src="https://science.nasa.gov/wp-content/uploads/2024/03/pia04304-mars.jpg?w=1536" alt="Mars from orbit" />
+
+      <h2>1. Introduction</h2>
+      <p>Mars, the fourth planet from the Sun, is a terrestrial planet with a cold desert climate. Known as the "Red Planet" due to iron oxide on its surface, it shares some similarities with Earth, yet presents a vastly different environment.</p>
+      <img src="https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA26511.jpg" alt="View from Perseverance Rover" />
+      <p>Its gravity is about 38% that of Earth:</p>
+      <p>\[
+      \frac{g_{Mars}}{g_{Earth}} = \frac{3.71}{9.81} \approx 0.38
+      \]</p>
+
+      <h2>2. Basic Facts About Mars</h2>
+      <ul>
+        <li>Distance from Sun: \( 2.279 \times 10^8 \, \text{km} \)</li>
+        <li>Orbital period: 687 Earth days</li>
+        <li>Diameter: 6,779 km</li>
+        <li>Moons: Phobos and Deimos</li>
+        <li>Average temperature: ~\(-63^\circ\)C</li>
+        <li>Atmosphere: Thin, mostly CO₂</li>
+        <li>Gravity: 3.721 m/s²</li>
+      </ul>
+
+      <h2>3. Surface and Geography</h2>
+      <img src="https://www.go-astronomy.com/images/moons/planet-mars.jpg" alt="Mars surface features" />
+      <p>Key features include:</p>
+      <ul>
+        <li><strong>Olympus Mons</strong>: Tallest volcano in the Solar System (\(21.9 \, \text{km}\))</li>
+        <li><strong>Valles Marineris</strong>: A canyon system over 4,000 km long</li>
+        <li><strong>Hellas Planitia</strong>: Deepest impact basin</li>
+      </ul>
+
+      <h2>4. Climate and Atmosphere</h2>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mars2020_-_Sol_738_-_NavLeft_-_Flickr_-_Kevin_M._Gill.png" alt="Martian weather conditions" />
+      <p>Mars has a very thin atmosphere composed of:</p>
+      <ul>
+        <li>95.3% Carbon dioxide</li>
+        <li>2.7% Nitrogen</li>
+        <li>1.6% Argon</li>
+      </ul>
+      <p>Surface pressure is ~610 Pa (compared to Earth’s 101,325 Pa).</p>
+      <p><strong>Blackbody temperature estimate:</strong></p>
+      <p>\[
+      T = \left( \frac{(1 - A) \cdot S}{4\sigma} \right)^{1/4}
+      \]</p>
+      <p>Where \( A = 0.25 \), \( S = 590 \, \text{W/m}^2 \), \( \sigma \): Stefan–Boltzmann constant</p>
+
+      <h2>5. Water on Mars</h2>
+      <img src="https://images.newscientist.com/wp-content/uploads/2018/12/20121233/korolev-crater.jpg?crop=16:9,smart&width=1200&height=675&upscale=true" alt="Ice on Mars" />
+      <p>Signs of water include polar ice caps, hydrated salts, and radar detection of subsurface lakes. Ancient riverbeds and deltas support theories of a once wetter Mars.</p>
+
+      <h2>6. Life on Mars?</h2>
+      <img src="https://www.nasa.gov/wp-content/uploads/2015/11/14-330a.jpg" alt="Organic molecules on Mars" />
+      <p>While no life has been confirmed, Curiosity has found organic molecules. Seasonal methane spikes raise the possibility of either biological or geological processes.</p>
+
+      <h2>7. Mars Missions</h2>
+      <ul>
+        <li><strong>Viking (1976)</strong> — First successful landers</li>
+        <li><strong>Pathfinder (1997)</strong> — Sojourner rover</li>
+        <li><strong>Curiosity (2012)</strong> — Gale Crater exploration</li>
+        <li><strong>InSight (2018)</strong> — Marsquake monitoring</li>
+        <li><strong>Perseverance (2021)</strong> — Searching for biosignatures</li>
+        <li><strong>Mangalyaan (2014)</strong> — Indian orbiter mission</li>
+        <li><strong>Tianwen-1 (2021)</strong> — China’s orbiter, lander & rover</li>
+      </ul>
+
+      <h2>8. Human Mission Possibilities</h2>
+      <img src="https://cdn.mos.cms.futurecdn.net/AQh73c64EohNEyuNhcqsQf.jpg" alt="Future Mars habitat concept" />
+      <p>NASA and SpaceX envision sending humans to Mars in the 2030s–2040s. Major challenges include radiation, food supply, psychological effects, and entry/descent/landing technology.</p>
+
+      <h2>9. Terraforming Mars</h2>
+      <p>Possible strategies include:</p>
+      <ul>
+        <li>Warming polar caps using orbital mirrors</li>
+        <li>Introducing super greenhouse gases</li>
+        <li>Constructing magnetic fields to prevent atmospheric loss</li>
+      </ul>
+      <p>Estimated energy needed: \( 10^{24} \, \text{J} \), far beyond current capabilities.</p>
+
+      <h2>10. Conclusion</h2>
+      <p>Mars stands as humanity's top candidate for interplanetary colonization. With continued exploration, we may soon witness the first steps on another world — paving the way for a multiplanetary future.</p>
+    </main>
+
+    <footer>
+      &copy; 2025 | Written by Astropedia | All rights reserved
+    </footer>
+  </div>
+</body>
+</html>

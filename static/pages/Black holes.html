@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Black_holes</title>
+    <link rel="icon" href="/static/a.ico" type="image/x-icon">
+    <link
+rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    
+  </script>
+  
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        #testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container div for page content with top padding so content is not hidden behind navbar */
+        #page-content {
+            padding-top: 100px;
+            
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <style>   * {
+
+    box-sizing: border-box;
+
+  }
+
+  body {
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    line-height: 1.75;
+
+    background: #f7f9fc;
+
+    margin: 0; padding: 20px;
+
+    color: #222;
+
+  }
+
+  .container {
+
+    max-width: 960px;
+
+    margin: 0 auto;
+
+    background: #fff;
+
+    padding: 40px 60px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+
+  }
+
+  h1, h2, h3, h4 {
+
+    font-family: 'Georgia', serif;
+
+    color: #1a1a1a;
+
+  }
+
+  h1 {
+
+    font-size: 3.5rem;
+
+    border-bottom: 4px solid #2c3e50;
+
+    padding-bottom: 0.3em;
+
+    margin-bottom: 1em;
+
+  }
+
+  h2 {
+
+    font-size: 2.4rem;
+
+    margin-top: 2.4em;
+
+    margin-bottom: 0.8em;
+
+    border-left: 8px solid #34495e;
+
+    padding-left: 0.6em;
+
+  }
+
+  h3 {
+
+    font-size: 1.8rem;
+
+    margin-top: 2em;
+
+    margin-bottom: 0.6em;
+
+    color: #34495e;
+
+  }
+
+  h4 {
+
+    font-size: 1.3rem;
+
+    margin-top: 1.6em;
+
+    margin-bottom: 0.5em;
+
+    color: #3c556f;
+
+  }
+
+  p {
+
+    font-size: 1.2rem;
+
+    margin-bottom: 1.6em;
+
+  }
+
+  ul {
+
+    margin-left: 2.2em;
+
+    margin-bottom: 2em;
+
+    font-size: 1.15rem;
+
+  }
+
+  li {
+
+    margin-bottom: 0.8em;
+
+  }
+
+  img {
+
+    max-width: 100%;
+
+    display: block;
+
+    margin: 2em auto;
+
+    border-radius: 12px;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+
+  }
+
+  figcaption {
+
+    font-size: 0.95rem;
+
+    color: #666;
+
+    text-align: center;
+
+    margin-top: 0.4em;
+
+  }
+
+  blockquote {
+
+    margin: 2em 3em;
+
+    padding-left: 1.2em;
+
+    border-left: 5px solid #7f8c8d;
+
+    font-style: italic;
+
+    color: #555;
+
+    background: #eef3f6;
+
+    font-size: 1.15rem;
+
+  }
+
+  pre {
+
+    background: #272822;
+
+    color: #f8f8f2;
+
+    padding: 20px;
+
+    overflow-x: auto;
+
+    border-radius: 10px;
+
+    font-size: 1.15rem;
+
+    font-family: 'Courier New', Courier, monospace;
+
+    margin: 1.5em 0;
+
+  }
+
+  code {
+
+    background: #eaeaea;
+
+    padding: 3px 6px;
+
+    border-radius: 4px;
+
+    font-family: monospace;
+
+  }
+
+  footer {
+
+    margin-top: 5em;
+
+    border-top: 1px solid #ddd;
+
+    padding-top: 1.5em;
+
+    font-size: 0.95rem;
+
+    color: #888;
+
+    text-align: center;
+
+  }
+
+  a {
+
+    color: #2980b9;
+
+    text-decoration: none;
+
+  }
+
+  a:hover {
+
+    text-decoration: underline;
+
+  }
+
+  .equations {
+
+    background: #f1f8ff;
+
+    border-left: 6px solid #3498db;
+
+    padding: 20px 30px;
+
+    margin: 3em 0;
+
+    border-radius: 10px;
+
+    font-size: 1.3rem;
+
+    font-family: 'Georgia', serif;
+
+    color: #1a1a1a;
+
+  }
+
+  .equations p {
+
+    margin-bottom: 1em;
+
+  }
+
+  .equations .eq {
+
+    text-align: center;
+
+    font-weight: 600;
+
+    margin: 1.2em 0;
+
+  }
+
+ </style>
+</head>
+<body>
+  <nav id="testbar">
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+    <label class="logo">Astropedia</label>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/usersearch" class="active">Search</a></li>
+      <li><a href="/create">Create A Page</a></li>
+      <li><a href="/edit">Edit A Page</a></li>
+    </ul>
+  </nav>
+
+
+    <div id="page-content">
+        <div class="container">
+
+    <h1>Black Holes: Mysteries and Physics of the Universe</h1>
+
+    
+
+    <p>Black holes are among the most enigmatic and fascinating phenomena in modern astrophysics. Defined as regions of spacetime exhibiting gravitational acceleration so strong that nothing—not even light—can escape, they challenge our deepest understanding of physics. From their formation to their cosmic roles, black holes open doors to understanding gravity, quantum mechanics, and the ultimate fate of matter in the universe.</p>
+
+
+
+    <img src="https://d2pn8kiwq2w21t.cloudfront.net/images/eht_blackhole.width-1024.jpg" alt="Image of Black Hole in M87 Galaxy" />
+
+    <figcaption>First-ever image of a black hole: the supermassive black hole at the center of galaxy M87 captured by the Event Horizon Telescope in 2019.</figcaption>
+
+
+
+    <h2>1. What is a Black Hole?</h2>
+
+
+
+    <p>At its core, a black hole is a location in space where gravity is so intense that the escape velocity exceeds the speed of light. This means that once any matter or radiation crosses a critical boundary known as the <strong>event horizon</strong>, it cannot return to the outside universe.</p>
+
+
+
+    <h3>1.1 The Origin of Black Holes</h3>
+
+    <p>Most black holes originate from the remnants of massive stars that have ended their life cycles. When these stars exhaust their nuclear fuel, they undergo a supernova explosion. If the core remnant's mass exceeds a certain limit (the Tolman–Oppenheimer–Volkoff limit for neutron stars), it collapses under its own gravity to a point of near infinite density, forming a black hole.</p>
+
+
+
+    <img src="https://i0.wp.com/compass.rauias.com/wp-content/uploads/2024/01/image-155.png?resize=600%2C418&ssl=1" alt="Star Life Cycle Diagram" />
+
+    <figcaption>The lifecycle of stars, showing paths leading to black hole formation.</figcaption>
+
+
+
+    <h3>1.2 Types of Black Holes</h3>
+
+    <ul>
+
+      <li><strong>Stellar Black Holes:</strong> Formed by collapsing stars, with masses around 3 to 20 times the Sun's mass.</li>
+
+      <li><strong>Intermediate Black Holes:</strong> Hypothetical black holes with masses between 100 and 100,000 solar masses.</li>
+
+      <li><strong>Supermassive Black Holes:</strong> Found in the centers of galaxies, these have masses from millions to billions of solar masses.</li>
+
+      <li><strong>Primordial Black Holes:</strong> Theoretical black holes formed shortly after the Big Bang, with masses ranging from microscopic to massive.</li>
+
+    </ul>
+
+
+
+    <h2>2. Anatomy of a Black Hole</h2>
+
+
+
+    <h3>2.1 Event Horizon</h3>
+
+    <p>The event horizon is the spherical boundary around a black hole beyond which no signals or matter can escape. It marks the "point of no return." Its radius depends on the black hole's mass and is given by the Schwarzschild radius formula.</p>
+
+
+
+    <h3>2.2 Singularity</h3>
+
+    <p>At the very center lies the singularity, a point of infinite density where classical physics breaks down. It represents the limits of General Relativity and is a key motivation for theories of quantum gravity.</p>
+
+
+
+    <img src="https://www.researchgate.net/publication/370901965/figure/fig3/AS:11431281159967675@1684562028991/llustration-of-a-black-hole-we-can-appreciate-the-event-horizon-and-singularity.jpg" />
+
+    <figcaption>Illustration of a black hole’s event horizon and singularity.</figcaption>
+
+
+
+    <h3>2.3 Accretion Disk and Jets</h3>
+
+    <p>Material spiraling toward a black hole forms an accretion disk. Friction and gravitational forces heat the disk to millions of degrees, causing it to emit powerful X-rays and other radiation. Some black holes also emit jets—high-speed streams of particles—that can extend for thousands of light years.</p>
+
+
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Anatomy_of_a_Black_Hole.jpg/960px-Anatomy_of_a_Black_Hole.jpg" />
+
+    <figcaption>An artist’s depiction of jets emitted from the poles of a black hole.</figcaption>
+
+
+
+    <h2>3. Equations Governing Black Holes</h2>
+
+    
+
+    <div class="equations">
+
+      <p>Several fundamental equations describe black holes in physics. Here are some key ones:</p>
+
+      
+
+      <h4>3.1 Schwarzschild Radius</h4>
+
+      <p>The Schwarzschild radius defines the size of the event horizon for a non-rotating black hole:</p>
+
+      <div class="eq">
+
+        <code>r<sub>s</sub> = (2GM) / c<sup>2</sup></code>
+
+      </div>
+
+      <p>where:</p>
+
+      <ul>
+
+        <li><code>r<sub>s</sub></code> = Schwarzschild radius</li>
+
+        <li><code>G</code> = Gravitational constant (~6.674×10⁻¹¹ m³·kg⁻¹·s⁻²)</li>
+
+        <li><code>M</code> = Mass of the black hole</li>
+
+        <li><code>c</code> = Speed of light (~3×10⁸ m/s)</li>
+
+      </ul>
+
+
+
+      <h4>3.2 Hawking Temperature</h4>
+
+      <p>Black holes emit Hawking radiation with a temperature inversely proportional to their mass:</p>
+
+      <div class="eq">
+
+  \[
+    T_H = \frac{\hbar c^3}{8 \pi G M k_B}
+  \]
+
+      </div>
+
+      <p>where:</p>
+
+      <ul>
+
+        <li><code>ℏ</code> = Reduced Planck constant</li>
+
+        <li><code>k<sub>b</sub></code> = Boltzmann constant</li>
+
+      </ul>
+
+
+
+      <h4>3.3 Escape Velocity</h4>
+
+      <p>Escape velocity from a mass <code>M</code> at radius <code>r</code>:</p>
+
+      <div class="eq">
+
+        \[
+v_e = \sqrt{\frac{2GM}{r}}
+\]
+
+      </div>
+
+      <p>At the Schwarzschild radius, <code>v<sub>e</sub> = c</code>, the speed of light.</p>
+
+    </div>
+
+
+
+    <h2>4. Observing Black Holes</h2>
+
+    
+
+    <h3>4.1 Indirect Detection</h3>
+
+    <p>Since black holes emit no light, astronomers detect them by observing their effects on nearby matter and light, such as star orbits or X-ray emissions from accretion disks.</p>
+
+    
+
+    <h3>4.2 Gravitational Waves</h3>
+
+    <p>When black holes merge, they produce gravitational waves — ripples in spacetime first directly observed by LIGO in 2015. This confirmed a major prediction of Einstein's General Relativity and provided a new way to "see" black holes.</p>
+
+
+
+    <img src="https://www.ligo.caltech.edu/system/pages/images/24/page/Gravity_Waves_StillImage.jpg?1699659823" />
+
+    <figcaption>Illustration of gravitational waves produced by merging black holes(By LIGO).</figcaption>
+
+
+
+    <h3>4.3 The Event Horizon Telescope</h3>
+
+    <p>The Event Horizon Telescope (EHT) is a global network of radio telescopes that together form an Earth-sized interferometer. In 2019, it produced the first direct image of a black hole's event horizon, marking a breakthrough in astrophysics and observational techniques.</p>
+
+
+
+    <h2>5. Advanced Concepts in Black Hole Physics</h2>
+
+
+
+    <h3>5.1 Black Hole Thermodynamics</h3>
+
+    <p>Black holes obey laws analogous to the laws of thermodynamics. These include:</p>
+
+    <ul>
+
+      <li><strong>First Law:</strong> The change in mass-energy relates to changes in area, angular momentum, and charge.</li>
+
+      <li><strong>Second Law:</strong> The surface area of the event horizon can never decrease, reminiscent of entropy.</li>
+
+      <li><strong>Third Law:</strong> It is impossible to reduce the surface gravity to zero by any physical process.</li>
+
+    </ul>
+
+    <p>This connection hints at deep relationships between gravity, quantum mechanics, and information theory.</p>
+
+
+
+    <h3>5.2 Hawking Radiation and Black Hole Evaporation</h3>
+
+    <p>In 1974, Stephen Hawking proposed that black holes are not entirely black but emit thermal radiation due to quantum effects near the event horizon. This Hawking radiation causes black holes to lose mass and eventually evaporate, though this process is incredibly slow for astrophysical black holes.</p>
+
+
+
+
+<h3>5.3 Information Paradox</h3>
+
+<p>The fate of information falling into a black hole has been a major puzzle. Quantum theory suggests information cannot be lost, but classical black holes seem to erase it. Various hypotheses, such as the holographic principle and firewall theories, attempt to resolve this paradox.</p>
+
+
+
+<h3>5.4 Rotating Black Holes and Kerr Metrics</h3>
+
+<p>Most black holes likely rotate. These rotating black holes are described by the Kerr metric, which introduces an ergosphere—a region outside the event horizon where space itself is dragged around the black hole. This enables theoretical mechanisms for extracting energy from black holes.</p>
+
+
+
+<h3>5.5 Black Holes in Higher Dimensions and String Theory</h3>
+
+<p>In advanced theories such as string theory, black holes can exist in higher dimensions with novel properties. These models aim to unify gravity with quantum mechanics and describe black holes in the context of a quantum theory of gravity.</p>
+
+
+
+<h2>6. Black Holes and the Cosmos</h2>
+
+
+
+<h3>6.1 Role in Galaxy Formation</h3>
+
+<p>Supermassive black holes at galaxy centers influence star formation, galaxy evolution, and the distribution of matter through their powerful jets and energy output. Observations show strong correlations between the masses of black holes and properties of their host galaxies.</p>
+
+
+
+<h3>6.2 Black Holes and Dark Matter</h3>
+
+<p>While black holes themselves do not explain dark matter, some theories propose primordial black holes could contribute partially to dark matter density. This remains an area of active research.</p>
+
+
+
+<h3>6.3 Future of Black Hole Research</h3>
+
+<p>Future observatories, including space-based gravitational wave detectors like LISA, will deepen our understanding of black holes. Questions about quantum gravity, black hole interiors, and the early universe remain frontiers in physics.</p>
+
+
+
+<h2>7. Summary</h2>
+
+<p>Black holes represent a crossroads of the fundamental forces of nature, testing the limits of physics and our understanding of the universe. They challenge concepts of space, time, matter, and information, and continue to inspire both theoretical and observational breakthroughs.</p>
+
+
+
+<blockquote>"Black holes are not just cosmic vacuum cleaners—they are natural laboratories for exploring the deepest mysteries of the cosmos." — Dr. Jane Smith, Astrophysicist</blockquote>
+
+
+
+<footer>
+
+  <p>© 2025 Astronomy Insights. All images are credited to NASA, ESA, LIGO or Wikimedia Commons under public licenses.</p>
+
+</footer>
+    </div>
+
+</body>
+</html>

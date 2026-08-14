@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/a.ico" type="image/x-icon">
+    <title>Mercury</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <script id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <style>
+      .container {
+  max-width: 800px;
+  margin: auto;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.15);
+  color: #eee;
+  line-height: 1.6;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Headings */
+h1 {
+  font-size: 3em;
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 2em;
+  color: #00bfff;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #00bfff;
+  padding-bottom: 5px;
+}
+
+h3 {
+  font-size: 1.4em;
+  color: #55cfff;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 20px;
+  color: #ddd;
+}
+
+/* Lists */
+ul {
+  list-style-type: disc;
+  padding-left: 25px;
+  margin-bottom: 25px;
+}
+
+ul li {
+  margin-bottom: 10px;
+  color: #ccc;
+}
+
+/* Equations styling */
+p[style*="text-align:center"] {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.3em;
+  background-color: #222;
+  color: #0ff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 12px #0ff88c55;
+}
+
+/* Smaller text for subscripts and superscripts */
+sup, sub {
+  font-size: 0.75em;
+  vertical-align: super;
+  color: #a0eaff;
+}
+p[style*="text-align:center"] {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2em;           /* Increased from 1.3em to 2em */
+  background-color: #222;
+  color: #0ff;
+  padding: 20px 30px;       /* More padding for better spacing */
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 0 20px #0ff88c55;
+  user-select: text;
+  text-shadow: 0 0 5px #00ffffaa;
+}
+
+/* Links if any */
+a {
+  color: #1e90ff;
+  transition: .5s;
+}
+
+a:hover {
+  color: #63c7ff;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2.2em;
+  }
+  
+  h2 {
+    font-size: 1.6em;
+  }
+  
+  p[style*="text-align:center"] {
+    font-size: 1.1em;
+  }
+}
+
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+#testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container div for page content with top padding so content is not hidden behind navbar */
+        #page-content {
+            padding-top: 100px;
+            
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <style> body {
+
+  font-family: Arial, sans-serif;
+
+  line-height: 1.6;
+
+  background: #0d0d0d;
+
+  color: #ffffff;
+
+  padding: 20px;
+
+}
+
+
+
+.container {
+
+  max-width: 800px;
+
+  margin: auto;
+
+  background: #1e1e1e;
+
+  padding: 30px;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+
+}
+
+
+
+h1 {
+
+  font-size: 3em;
+
+  color: #ffd700;
+
+  margin-bottom: 10px;
+
+}
+
+
+
+.subtitle {
+
+  font-size: 1.2em;
+
+  color: #ccc;
+
+  margin-bottom: 30px;
+
+}
+
+
+
+section {
+
+  margin-bottom: 25px;
+
+}
+
+
+
+h2 {
+
+  color: #00bfff;
+
+  margin-bottom: 10px;
+
+}
+
+
+
+ul {
+
+  list-style-type: disc;
+
+  padding-left: 20px;
+
+}
+
+
+
+footer {
+
+  text-align: center;
+
+  margin-top: 30px;
+
+  font-size: 0.9em;
+
+  color: #999;
+
+}
+.image-container {
+  margin: 20px 0 30px 0;
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00bfff55;
+  border: 2px solid #00bfff88;
+  user-select: none;
+}
+
+.image-container .caption {
+  margin-top: 8px;
+  font-size: 0.9em;
+  color: #99ccee;
+  font-style: italic;
+}
+ </style>
+</head>
+<body>
+    <nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href='/news'>News</a></li>
+        <li><a href='/usersearch' class="active">Search</a></li>
+        <li><a href='/create'>Create A Page</a></li>
+        <li><a href='/edit'>Edit A Page</a></li>
+    </ul>
+</nav>
+
+    <!-- Mercury -->
+
+    <div id="page-content">
+        <div class="container">
+
+    <section>
+  <h2>Overview</h2>
+  <p>
+    Mercury is the smallest planet in the Solar System and the closest to the Sun, orbiting at an average distance of about 57.9 million kilometers (0.39 AU). It has a rocky, heavily cratered surface similar to our Moon, formed from impacts over billions of years. Despite its proximity to the Sun, Mercury has extreme temperature variations, from -173°C at night to 427°C during the day, due to its very thin atmosphere that cannot retain heat.
+  </p>
+  <p>
+    Mercury's small size and mass (about 5.5% of Earth's mass) give it a weak gravitational pull, approximately 38% that of Earth's. This influences how any atmosphere or particles can escape into space, which explains why Mercury has virtually no atmosphere.
+  </p>
+</section>
+
+<section>
+  <h2>Fast Facts</h2>
+  <ul>
+    <li><strong>Distance from the Sun:</strong> 57.9 million km (0.39 AU)</li>
+    <li><strong>Orbital Period (Length of a year):</strong> 88 Earth days</li>
+    <li><strong>Rotation Period (Length of a day):</strong> 59 Earth days (sidereal day)</li>
+    <li><strong>Solar Day:</strong> 176 Earth days (time from one sunrise to the next)</li>
+    <li><strong>Moons:</strong> 0</li>
+    <li><strong>Surface temperature:</strong> -173°C to 427°C</li>
+    <li><strong>Radius:</strong> 2,439.7 km</li>
+    <li><strong>Mass:</strong> 3.3011×10^23 kg</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Interesting Features</h2>
+  <p>
+    Mercury’s surface is similar to the Moon’s, with many craters from meteoroid impacts. The largest is the Caloris Basin, about 1,550 km in diameter. Another unique feature is “scarps” or cliffs formed as the planet cooled and contracted, causing the crust to wrinkle.
+  </p>
+  <p>
+    The large iron core, which constitutes about 85% of Mercury's radius, is responsible for its high density and magnetic field. This core may still be partially molten, driving a magnetic dynamo.
+  </p>
+    <div class="image-container">
+    <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/2023/09/p/i/a/1/PIA19216_1280.jpg" alt="Caloris Basin on Mercury" />
+    <p class="caption">Caloris Basin — a huge impact crater on Mercury's surface.</p>
+</section>
+
+<section>
+  <h2>Exploration</h2>
+  <p>
+    Mercury was first visited by NASA's Mariner 10 spacecraft in the 1970s, which mapped about 45% of its surface. Later, the MESSENGER mission orbited Mercury from 2011 to 2015, providing detailed images and data on its composition and magnetic field.
+  </p>
+  <p>
+    The European-Japanese mission BepiColombo launched in 2018 and is expected to arrive at Mercury in 2025 to study its surface, magnetic environment, and exosphere in more detail.
+  </p>
+    <div class="image-container">
+    <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/psd/solar/2023/07/messenger.jpg" alt="NASA's MESSENGER spacecraft" />
+    <p class="caption">NASA’s MESSENGER spacecraft that orbited Mercury.</p>
+  </div>
+</section>
+
+<section>
+  <h2>Composition</h2>
+  <p>
+    Mercury's core is primarily iron, surrounded by a silicate mantle and crust. Its high density (5.43 g/cm³) indicates a larger metallic core proportion than Earth. Scientists believe a massive impact early in Mercury’s history stripped much of its original mantle and crust, leaving the dense core exposed.
+  </p>
+</section>
+
+<section>
+  <h2>Magnetic Field</h2>
+  <p>
+    Mercury has a global magnetic field that is about 1% the strength of Earth's. This field is believed to be generated by a dynamo effect in its partially liquid outer core, caused by convection currents in the molten metal.
+  </p>
+  <p>
+    The presence of this field protects Mercury’s surface from the solar wind and creates a small magnetosphere, although it is much weaker and less extensive than Earth's.
+  </p>
+</section>
+
+<section>
+  <h2>Orbit and Rotation</h2>
+  <p>
+    Mercury has a highly elliptical orbit with an eccentricity of 0.2056. Its average distance from the Sun (semi-major axis) is approximately 57.9 million km, but this varies between about 46 million km (perihelion) and 70 million km (aphelion).
+  </p>
+  <p>
+    Mercury’s orbital period is 88 Earth days, but it rotates on its axis once every 59 Earth days. Interestingly, Mercury exhibits a 3:2 spin-orbit resonance, meaning it completes three rotations on its axis for every two orbits around the Sun.
+  </p>
+  <p>
+    This results in the solar day (sunrise to sunrise) on Mercury lasting 176 Earth days, twice as long as its year.
+  </p>
+    <div class="image-container">
+    <img src="https://www.physics.unlv.edu/~jeffery/astro/mercury/mercury_3_2_spin_orbit_resonance.png" alt="Diagram of Mercury’s orbit and rotation" />
+    <p class="caption">Diagram illustrating Mercury’s orbit and 3:2 spin-orbit resonance.</p>
+  </div>
+
+  <h3>Equations:</h3>
+  <ul>
+    <li><strong>Orbital Period (Kepler’s 3rd Law):</strong>  
+      <br> \[ T^2 = \frac{4\pi^2}{GM}a^3 \]
+      <br> where  T  = orbital period,  G  = gravitational constant,  M  = mass of the Sun, and  a  = semi-major axis.
+    </li>
+    <li><strong>Orbital Eccentricity:</strong>  
+      <br> \[ e = \frac{r_a - r_p}{r_a + r_p} \]
+      <br> where \( r_a \) = aphelion distance, \( r_p \) = perihelion distance.
+    </li>
+    <li><strong>3:2 Spin-Orbit Resonance:</strong>  
+      <br> \( \frac{Rotation\:Period}{Orbital\:Period} = \frac{2}{3} \)
+    </li>
+  </ul>
+</section>
+
+<section>
+  <h2>Fun Facts</h2>
+  <ul>
+    <li>Mercury has water ice trapped in permanently shadowed craters near its poles, despite the high daytime temperatures.</li>
+    <li>Its exosphere is made up of atoms blasted off the surface by the solar wind, mainly oxygen, sodium, hydrogen, helium, and potassium.</li>
+    <li>The planet’s name comes from Mercury, the Roman messenger god, because it moves quickly across the sky.</li>
+    <li>Mercury can sometimes be seen with the naked eye just before sunrise or just after sunset, earning it the nicknames "Morning Star" or "Evening Star."</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Mercury’s Temperature Extremes Explained</h2>
+  <p>
+    Due to Mercury’s lack of atmosphere and slow rotation, its surface experiences extreme temperature variations. During the day, the Sun’s rays heat the surface to over 400°C. But without an atmosphere to trap heat, nighttime temperatures plummet to -173°C.
+  </p>
+  <p>
+    The temperature variation can be roughly modeled by the formula:
+  </p>
+  <p style="text-align:center; font-family: monospace; background-color:#222; padding:10px; border-radius:5px;">
+    \( T = T_{max} \times \cos^{1/4}(\theta) \)
+  </p>
+  <p>
+    where \( T \) is the surface temperature at angle \( \theta \) from the subsolar point (the point directly facing the Sun), and \( T_{max} \) is the maximum temperature at the subsolar point.
+  </p>
+</section>
+
+    <footer>
+
+      <p>© 2025 Written by Astropedia</p>
+
+    </footer>
+
+  </div>
+    </div>
+
+</body>
+</html>

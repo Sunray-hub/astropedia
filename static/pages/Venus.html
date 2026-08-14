@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/a.ico" type="image/x-icon">
+    <title>Venus</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+   
+    <style>
+    * {
+        font-family: Arial, Helvetica, sans-serif;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    #testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+
+    body {
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    #page-content {
+        padding: 100px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Styling for all images inside article */
+    article img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    article h1, article h2 {
+        margin: 20px 0 10px;
+        color: #2c3e50;
+    }
+
+    article ul {
+        margin: 10px 0 20px 20px;
+        padding-left: 20px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 40px;
+        font-size: 14px;
+        background-color: #eee;
+        color: #666;
+    }
+</style>
+</head>
+<body>
+    <nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href='/news'>News</a></li>
+        <li><a href='/usersearch' class="active">Search</a></li>
+        <li><a href='/create'>Create A Page</a></li>
+        <li><a href='/edit'>Edit A Page</a></li>
+    </ul>
+</nav>
+
+<!-- Venus -->
+    <div id="page-content">
+        <h1>Venus - Earth's Mysterious Twin</h1>
+    <p>Explore the second planet from the Sun and one of the most intriguing worlds in our solar system.</p>
+  <article>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Venus-real_color.jpg" alt="Venus - Real Color Image">
+
+  <p><strong>Venus</strong> is the second planet from the Sun and the closest planetary neighbor to Earth. Often referred to as Earth's "twin," Venus has a similar size and mass, but that's where the similarities end. The planet is shrouded in mystery due to its thick clouds and extreme surface conditions.</p>
+
+  <h2>Basic Facts</h2>
+
+  <ul>
+    <li><strong>Distance from the Sun:</strong> About 108 million km (67 million miles)</li>
+    <li><strong>Diameter:</strong> 12,104 km (7,521 miles)</li>
+    <li><strong>Orbital Period:</strong> 225 Earth days</li>
+    <li><strong>Rotation Period:</strong> 243 Earth days (retrograde)</li>
+    <li><strong>Surface Temperature:</strong> Up to 465°C (869°F)</li>
+    <li><strong>Atmosphere:</strong> Carbon dioxide, nitrogen, sulfuric acid clouds</li>
+  </ul>
+
+  <h2>Atmosphere and Surface</h2>
+
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Wispr_magellan_4thflyby.gif/640px-Wispr_magellan_4thflyby.gif" alt="Radar image of Venus surface from Magellan mission">
+
+  <p>Venus has an incredibly dense atmosphere composed mainly of carbon dioxide, with thick clouds of sulfuric acid that make it impossible to see the surface with optical telescopes. The atmospheric pressure at the surface is more than 90 times that of Earth — equivalent to being nearly 1 km underwater on Earth.</p>
+
+  <p>Radar mapping from missions like NASA’s <em>Magellan</em> has revealed a surface filled with vast plains, highland regions, and thousands of volcanoes. Some scientists believe that Venus may still be geologically active today.</p>
+
+  <h2>The Greenhouse Effect</h2>
+
+  <img src="https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2003/02/greenhouse_effect_on_venus/10076842-2-eng-GB/Greenhouse_effect_on_Venus_pillars.jpg" alt="Greenhouse Effect on Venus - Diagram">
+
+  <p>Venus is the hottest planet in the solar system due to a runaway greenhouse effect. Solar radiation is trapped by the thick clouds and carbon dioxide, causing the planet’s temperature to soar. This phenomenon is a dramatic warning of what unchecked climate change could do to a planet.</p>
+
+  <h2>Rotation and Motion</h2>
+
+  <p>Unlike most planets, Venus rotates in the opposite direction of its orbit (retrograde rotation). It also rotates very slowly — one day on Venus lasts longer than its year. This unusual rotation affects the planet's weather and possibly its geologic activity.</p>
+
+  <h2>Exploration Missions</h2>
+
+  <img src="https://i.redd.it/iqpadr2wvykz.jpg" alt="Surface image from Venera 13 - 1982">
+
+  <p>Venus has been visited by numerous spacecraft over the decades:</p>
+
+  <ul>
+    <li><strong>Venera Missions (USSR):</strong> The first to land on Venus and send back images. Venera 13 sent the first color photos from the surface in 1982.</li>
+    <li><strong>Magellan (USA):</strong> Mapped the surface with radar from 1990 to 1994.</li>
+    <li><strong>Akatsuki (Japan):</strong> Currently studying Venus’s weather and atmosphere.</li>
+    <li><strong>Future Missions:</strong> NASA's VERITAS and ESA’s EnVision missions are planned for the 2030s to study Venus’s geology and climate in more detail.</li>
+  </ul>
+
+  <img src="https://preview.redd.it/u0zywbtng6n51.jpg?width=640&crop=smart&auto=webp&s=d77bbd503796dd3e92bfe3d26d9e555f91d1fe96" alt="Venus clouds seen by Akatsuki spacecraft">
+
+  <h2>Interesting Facts</h2>
+
+
+  <ul>
+    <li>Venus has no moons or rings.</li>
+    <li>It’s sometimes visible just before sunrise or after sunset — earning the names "Morning Star" and "Evening Star."</li>
+    <li>Winds in Venus’s upper atmosphere can reach speeds of over 360 km/h (224 mph).</li>
+    <li>It has more volcanoes than any other planet in the solar system.</li>
+  </ul>
+
+  <h2>Why Study Venus?</h2>
+
+  <p>Studying Venus helps scientists understand planetary evolution, especially in terms of climate and atmospheric change. Venus serves as both a warning and a lesson — showing us what can happen when a planet's climate changes uncontrollably.</p>
+
+  <h2>Conclusion</h2>
+
+  <p>Despite its hostile conditions, Venus remains one of the most fascinating planets in our solar system. Its mysteries continue to challenge scientists and inspire future exploration. With new missions on the horizon, we are closer than ever to unraveling the secrets of this fiery world.</p>
+
+</article>
+  <footer>
+
+  <p>&copy; 2025 | Written by Astropedia | All rights reserved</p>
+    <p>Last updated: 2025</p>
+  </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,606 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    text-decoration: none;
+
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #0e0f2c;
+}
+header{
+    padding: 0;
+    margin: 0;
+}
+#ufo{
+    width: 190px;
+    height: auto;
+    animation-name: ufo1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    margin: 20px;
+}
+@keyframes ufo1 {
+    from{
+         transform: translateX(1000px) translateY(0px);
+    }
+    to{
+        transform: translateY(30px)
+    }
+    
+}
+
+#audio{
+    display: none;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1a1b3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    font-size: 50px;
+    transition: .5s;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+
+
+}
+#ufo1{
+    width: 190px;
+    height: auto;
+
+}
+
+#searchtopbar{
+    color: white;
+    display: inline-block;
+    
+    
+    text-decoration: none;
+}
+
+#prt_news_link{
+    padding-right: 488px;
+
+}
+#news_link{
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+}
+
+#Astronomy{
+    font-family: fantasy;
+    color: white;
+    display: inline-block;
+    margin-bottom: 100px;
+    font-size: 60px;
+    margin-left: 200px;
+}
+#ufo2{
+    height: 250px;
+    width: auto;
+    margin-left: 460px;
+    margin-top: 50px;
+}
+#paraastro{
+    text-align: center;
+    font-size: 50px;
+    
+}
+
+
+.headers {
+  position: relative;
+  height: 60px; /* Adjust based on h1 size */
+  overflow: hidden;
+}
+
+#introastro,
+#hindiintroastro {
+position: absolute;
+  transition: left 0.5s ease-in-out;
+  
+  width: 100%;
+  left: 0;
+  top: 0;
+  text-align: center;
+}
+#hindiintroastro{
+    position: absolute;
+    left: -100%;
+      
+}
+.headers:hover #introastro {
+  left: 100%;
+}
+
+.headers:hover #hindiintroastro {
+  left: 0;
+}
+.info{
+
+  color: white;
+
+  max-width: 800px;
+
+  margin: 40px auto;
+
+  padding: 20px;
+
+  background-color: #1a1b3c;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+
+
+}
+.search-box a{
+    color: rgb(135, 229, 255);
+}
+.search-box{
+  color: white;
+
+  max-width: 800px;
+
+  margin: 40px auto;
+
+  padding: 20px;
+  margin-top: 50px;
+
+  background-color: #1a1b3c;
+
+  border-radius: 10px;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+
+}
+
+.boxbtn{
+    text-align: center;
+}
+#clickplay{
+    text-align: center;
+    font-size: 50px;
+}
+.cnt-audio{
+    text-align: center;
+}
+
+.prt-search{
+    font-size: 25px;
+    display: inline-block;
+    margin-right: 5px;
+    
+}
+#ufo1{
+    display: inline-block;
+    padding-top: 80px;
+    animation-name: ufo2;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate-reverse;
+    padding-bottom: 20px;
+    
+}
+.prt-ufo1{
+    text-align: center;
+
+
+}
+@keyframes ufo2{
+    from{
+
+    }
+    to{
+        transform: translateY(100px);
+
+    }
+    
+}
+#n {
+  display: flex;
+  align-items: center;
+}
+
+#content {
+  padding: 6px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+#line_num{
+     padding: 6px;
+  font-size: 16px;
+  border: none;
+  border-radius: 0px 0 0 0px;
+  outline: none;
+
+}
+
+#searchbtn {
+  padding: 6px 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+
+}
+
+#searchbtn:hover {
+  background-color: #0056b3;
+}
+
+.prt-search1{
+   margin-left: 500px;
+   
+   display: flex;
+   padding: 0px;
+
+}
+
+#asteroid_news{
+
+    font-size: 40px;
+    text-decoration: none;
+    color: white;
+    text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+}
+.asteroid_news{
+  color: white;
+
+  max-width: 800px;
+
+  margin: 40px auto;
+
+  padding: 20px;
+
+  background-color: #1a1b3c;
+
+  border-radius: 20px;
+
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    text-align: center;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+        text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+
+}
+.asteroid_news img{
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    margin-bottom: 20px;
+}
+
+
+.prt-search2{
+   margin-left: 20px;
+   padding-left: 40px;
+   
+   display: flex;
+   
+
+}
+
+#searchtopbar1{
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+}
+#news_page_asteroid_news{
+    padding-top: 100px;
+}
+
+#Asteroid_news_block{
+    color: white;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 10px;
+    background-color: #1a1b3c;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    text-align: center;
+    color: white;
+        text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+     border-radius: 20px;
+
+}
+#mars_weather{
+    text-align: center;
+    background-image: url("InSight.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+        text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+     padding: 100px;
+     border-radius: 20px;
+
+}
+
+#Solar_weather{
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    margin-top: 20px;
+    text-align: center;
+    background-image: url("sun.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+        text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+     padding: 100px;
+     border-radius: 20px;
+
+}
+#news_block{
+    background-color: #1e1f40;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 10px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+
+}
+#news_block a{
+    color: #00b7ff;
+}
+#news_block_heading{
+    font-weight: 300;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#title_article{
+    margin-bottom: 20px;
+}
+#name{
+    margin-left: 1000px;
+    margin-top: 20px;
+}
+
+#userform{
+    padding-top: 100px;
+
+}
+#q{
+    padding: 10px;
+    margin-left: 20px;
+    display: inline-block;
+}
+#submitget:hover{
+    background-color: #00b7ff;
+    
+    cursor: pointer;
+}
+#searchq{
+    display: inline-block;
+    color: white;
+}
+#submitget{
+    padding: 10px;
+    color: white;
+    background-color: rgb(83, 137, 255);
+    border-color: rgb(83, 137, 255);
+    transition: .5s;
+}
+#prt-userform{
+    text-align: center;
+}
+#results{
+    text-align: center;
+}
+#createform{
+    padding-top: 100px;
+    text-align: center;
+    top: 0;
+    z-index: 1;
+    margin-bottom: 300px;
+}
+#search-form-api{
+    padding-top: 100px;
+    text-align: center;
+    top: 0;
+    z-index: 1;
+
+}
+#disclamer{
+    color:white;
+}
+#create{
+    padding: 10px;
+    background-color: rgb(0, 119, 255);
+}
+#create:hover{
+    background-color: rgb(0, 174, 255);
+    cursor: pointer;
+}
+#titleform{
+    display: inline-block;
+    margin-bottom: 10px;
+    height: 40px;
+    width: auto;
+}
+#astropedia{
+    color: white;
+    display: inline-block;
+    padding-right: 450px;
+    font-size: 25px;
+    padding-left: 10px;
+    margin-left: 30px;
+    text-decoration: none;
+}
+#intropic{
+    width: 100vw;
+    height: auto;
+}
+footer{
+    padding: 0;
+    margin: 0;
+    top: -100%;
+    margin-top: 50px;
+}
+footer div{
+    color: white;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    top: -100%;
+    z-index: 2;
+    border-top:2px solid #f26a4b;
+
+}
+<nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="{{url_for('index')}}" class="active">Home</a></li>
+        <li><a href="{{url_for('news')}}">News</a></li>
+        <li><a href="{{url_for('search')}}">Search</a></li>
+        <li><a href="{{url_for('create_page')}}">Create A Page</a></li>
+        <li><a href="{{url_for('edit')}}">Edit A Page</a></li>
+    </ul>
+</nav>
+    
+#filename{
+    text-align: center;
+    display: block;
+    
+    margin-bottom:30px;
+}
+#edit-submit{
+    text-align: center;
+}
+#edit-submit-button{
+    padding: 10px;
+    margin-bottom: 60px;
+    background-color: white;
+    border-radius: 20px;
+    transition: .5s;
+}
+#edit-submit-button:hover{
+    background-color: #007bff;
+    color: black;
+    cursor: pointer;
+}
+.prt-filename{
+    display: flex;
+    justify-content: center;  /* Horizontal center */
+    align-items: center;      /* Vertical center */
+    height: 20vh;    
+}
+
+#results li a{
+    color: white;
+    
+}
+#results li{
+    list-style: none;
+}
+.usersearch{
+  color: white;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1a1b3c;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  text-align: center;
+  margin-bottom: 300px;
+  
+    
+}
+#ifram-div{
+    text-align: center;
+    max-width: 1200px;
+    background-color: #1a1b3c;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    padding: 20px;
+    margin: 40px auto;
+    color: white;
+}
+.apod{
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #1a1b3c;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.7);
+  text-align: center;
+
+}
+.apod img{
+    border-radius: 20px;
+    height: auto;
+    width: auto;
+}
+#Asteroid_news_block ul{
+    text-align: left;
+    display: inline-block;
+}
+#Asteroid_news_block img{
+    border-radius: 30px;
+    border-color: black;
+    margin-top: 100px;
+    height: 250px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+a{
+    transition: .5s;
+}
+/* #Mathilde{
+    height: 250px;
+    overflow: hidden;
+    border-radius: 30px;
+} */
+

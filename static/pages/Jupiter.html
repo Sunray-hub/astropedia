@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/static/a.ico" type="image/x-icon">
+    <title>Jupiter</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+        #testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* Container div for page content with top padding so content is not hidden behind navbar */
+        #page-content {
+            padding-top: 100px;
+            
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+    <style> 
+
+* {
+
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+h3 {
+  font-size: 1.6em;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  padding-left: 12px;
+  border-left: 4px solid #00c8ff;
+  color: #00c8ff;
+  font-weight: 600;
+}
+
+
+
+body {
+
+  background-color: #0e0f2c;
+
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  color: white;
+
+  line-height: 1.6;
+
+}
+
+
+
+#content {
+
+  display: block;
+
+  padding: 20px 40px;
+
+  background-color: #1a1b3c;
+
+  color: white;
+
+  border-radius: 20px;
+
+  font-size: 18px;
+
+  transition: .5s;
+
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+
+  max-width: 1000px;
+
+  margin: 40px auto;
+
+}
+
+
+
+h1 {
+
+  text-align: center;
+
+  font-size: 2.5em;
+
+  color: #f0d107;
+
+  margin-bottom: 20px;
+
+}
+
+
+
+h2 {
+
+  border-left: 5px solid #f0d107;
+
+  padding-left: 15px;
+
+  margin-top: 30px;
+
+  color: #f7d93f;
+
+}
+
+
+
+h3 {
+
+  color: #ffcc00;
+
+  margin-top: 20px;
+
+  font-size: 1.4em;
+
+}
+
+
+
+img {
+
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+
+  margin: 20px auto;
+
+  border: 3px solid #000;
+
+  border-radius: 30px;
+
+}
+
+
+
+#caption {
+
+  text-align: center;
+
+  font-weight: 600;
+
+  margin-bottom: 20px;
+
+  font-style: italic;
+
+}
+
+
+
+p {
+
+  margin: 15px 0;
+
+  font-size: 1.1em;
+
+}
+
+
+
+ul {
+
+  padding-left: 20px;
+
+  margin-bottom: 20px;
+
+}
+
+
+
+
+
+
+
+table {
+
+  width: 90%;
+
+  margin: 20px auto;
+
+  border-collapse: collapse;
+
+  font-family: Arial, sans-serif;
+
+  background-color: #fff;
+
+  color: #000;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+}
+
+
+
+th, td {
+
+  border: 1px solid #666;
+
+  padding: 10px;
+
+  text-align: left;
+
+}
+
+
+
+th {
+
+  background-color: #444;
+
+  color: #fff;
+
+}
+
+
+
+tr:nth-child(even) {
+
+  background-color: #f2f2f2;
+
+}
+
+
+
+caption {
+
+  caption-side: top;
+
+  font-size: 1.5em;
+
+  margin-bottom: 10px;
+
+  color: #f0d107;
+
+}
+
+
+
+a {
+
+  color: #4fd1c5;
+
+  text-decoration: none;
+  transition: .5s;
+
+}
+
+
+
+a:hover {
+
+  text-decoration: underline;
+
+}
+.jupiter-group {
+  margin-bottom: 1.5em;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 0.5em;
+  background-color: #f9f9f9;
+  color: black;
+  
+
+}
+
+.jupiter-group summary {
+  font-weight: bold;
+  font-size: 1.1em;
+  cursor: pointer;
+  padding: 0.3em;
+  transition: .5s;
+}
+
+.jupiter-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5em;
+}
+
+.jupiter-table th,
+.jupiter-table td {
+  border: 1px solid #ccc;
+  padding: 0.4em 0.8em;
+  text-align: left;
+}
+
+.jupiter-table th {
+  background-color: #ddeeff;
+}
+
+.jupiter-table tbody tr:hover {
+  background-color: #e6f0ff;
+}
+
+
+
+
+</style>
+</head>
+<body>
+  <nav id="testbar">
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+    <label class="logo">Astropedia</label>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/search" class="active">Search</a></li>
+      <li><a href="/create_page">Create A Page</a></li>
+      <li><a href="/edit">Edit A Page</a></li>
+    </ul>
+  </nav>
+
+
+    <div id="page-content">
+        <div id="content">
+
+<h1>Jupiter | The giant of our solar system</h1>
+
+<br>
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Jupiter_OPAL_2024.png/960px-Jupiter_OPAL_2024.png" id="hubble-jupiter" alt="Jupiter">
+
+<p id="caption">Image of Jupiter taken by the Hubble Space Telescope</p>
+
+<h2>The Giant: Juipter</h2>
+
+<br>
+
+<p><B>Jupiter is the fifth planet in the solar system<B>. It has twice as much mass as all the other planets in the solar system. More than 1000 Earths can be fit inside the planet. </p>
+
+<br>
+
+<p>It is nearly a perfect sphere as:</p>
+
+<ul>
+
+<li>Polar diameter: 133,708km</li>
+
+<li>Equatorial diameter: 139,820km</li>
+
+</ul>
+
+<br>
+
+<p>Doing the math, its polar diameter is 6,000km less than its equatorial diameter </p>
+
+<br>
+
+<p>It rotates 45,000km per hour and consequently, it rotates on its axis every 10 hours.</p>
+
+<h2> Structure of Jupiter </h2>
+
+<img src="https://i.pinimg.com/474x/a6/4c/9f/a64c9f82ab987db3038808ed518b4c31.jpg" alt="Jupiter internal structure">
+
+<p id="caption"> Internal Structure of Jupiter vs Earth </p>
+
+<h3> Cloud Decks </h3>
+
+<br>
+
+  <table>
+
+    <caption>Jupiter's Atmospheric Composition</caption>
+
+    <thead>
+
+      <tr>
+
+        <th>Gas</th>
+
+        <th>Approximate Percentage by Volume</th>
+
+      </tr>
+
+    </thead>
+
+    <tbody>
+
+      <tr>
+
+        <td>Hydrogen (H₂)</td>
+
+        <td>~89.8%</td>
+
+      </tr>
+
+      <tr>
+
+        <td>Helium (He)</td>
+
+        <td>~10.2%</td>
+
+      </tr>
+
+      <tr>
+
+        <td>Methane (CH₄)</td>
+
+        <td>~0.3%</td>
+
+      </tr>
+
+      <tr>
+
+        <td>Ammonia (NH₃)</td>
+
+        <td>~0.026%</td>
+
+      </tr>
+
+      <tr>
+
+        <td>Hydrogen Deuteride (HD)</td>
+
+        <td>~0.003%</td>
+
+      </tr>
+
+      <tr>
+
+        <td>Ethane (C₂H₆)</td>
+
+        <td>~0.0006%</td>
+
+      </tr>
+
+      <tr>
+
+        <td>Water Vapor (H₂O)</td>
+
+        <td>Trace amounts</td>
+
+      </tr>
+
+      <tr>
+
+        <td>Other Compounds</td>
+
+        <td>Trace amounts</td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+
+<br>
+
+<p>The top layer of clouds is composed of ammonia. Beneath, in the middle deck, ammonia hydrosulfide crystals give Jupiter its dark red colour. The bottom deck is made out of frozen water, because the temperature is well below 0 Celsius there.</p>
+
+<p>Beneath the atmospheric layer comes a layer of molecular hydrogen. As the pressure increases, the molecular hydrogen becomes metallic. The metallic hydrogen layer surrounds the hot silicate core.</p>
+
+<br>
+
+<h2>The Great Red Spot</h2>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSULlVEJNp2UAMwo8Ri70fLdfX8tEcmTLJQSg&s" alt="Great Red Spot">
+<p id="caption">The Great Red Spot</p>
+<br>
+
+<p> The Great Red Spot is a phenomenon of Jovian weather. It rotates anticlockwise every 11 days. It is across an area of ~24,000km in length and ~12,000km in width. It has twice the diameter of Earth. It is composed of swirling clouds of primarily hydrogen and helium, along with ammonia and other gases. Its red colour is of mystery. It's probably because of the reaction of phosphorus with sunlight. It is at least 8km above the surrounding cloud layers.</p>
+
+<h2> Shoemaker-Levy 9 </h2>
+<img src="https://science.nasa.gov/wp-content/uploads/2023/04/299_ImpactsOfSL9_poster_2-jpg.webp" alt="The Lasting Impacts of Comet Shoemaker-Levy 9">
+<p id="caption">The Lasting Impacts of Comet Shoemaker-Levy 9</p>
+<p>Shoemaker-Levy 9 was a fragmented comet that famously collided with Jupiter in July 1994, providing scientists with a rare and dramatic opportunity to study both a comet impact and the gas giant's atmosphere. Discovered in 1993 by astronomers Carolyn and Eugene Shoemaker and David Levy, the comet had been captured by Jupiter's gravity and torn apart into multiple pieces during a previous close approach. As the fragments slammed into Jupiter's southern hemisphere at speeds of around 60 km/s, they left behind massive, dark scars in the atmosphere, some larger than Earth. These impacts released huge amounts of energy and gave researchers valuable insights into Jupiter's atmospheric composition and dynamics, as well as the potential threat of comet impacts in our solar system.</p>
+
+<br>
+
+  <h2>Moons of Jupiter</h2>
+
+
+
+<h3>4. Complete List of Jupiter's Moons</h3>
+
+<details class="jupiter-group" open>
+  <summary>Galilean Moons</summary>
+  <table class="jupiter-table">
+    <thead><tr><th>#</th><th>Name</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Io</td></tr>
+      <tr><td>2</td><td>Europa</td></tr>
+      <tr><td>3</td><td>Ganymede</td></tr>
+      <tr><td>4</td><td>Callisto</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="jupiter-group">
+  <summary>Inner Moons</summary>
+  <table class="jupiter-table">
+    <thead><tr><th>#</th><th>Name</th></tr></thead>
+    <tbody>
+      <tr><td>5</td><td>Metis</td></tr>
+      <tr><td>6</td><td>Adrastea</td></tr>
+      <tr><td>7</td><td>Amalthea</td></tr>
+      <tr><td>8</td><td>Thebe</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="jupiter-group">
+  <summary>Himalia Group</summary>
+  <table class="jupiter-table">
+    <thead><tr><th>#</th><th>Name</th></tr></thead>
+    <tbody>
+      <tr><td>9</td><td>Himalia</td></tr>
+      <tr><td>10</td><td>Leda</td></tr>
+      <tr><td>11</td><td>Elara</td></tr>
+      <tr><td>12</td><td>Dia</td></tr>
+      <tr><td>13</td><td>Lysithea</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="jupiter-group">
+  <summary>Ananke Group</summary>
+  <table class="jupiter-table">
+    <thead><tr><th>#</th><th>Name</th></tr></thead>
+    <tbody>
+      <tr><td>14</td><td>Ananke</td></tr>
+      <tr><td>15</td><td>Praxidike</td></tr>
+      <tr><td>16</td><td>Iocaste</td></tr>
+      <tr><td>17</td><td>Harpalyke</td></tr>
+      <tr><td>18</td><td>Hermippe</td></tr>
+      <tr><td>19</td><td>Euanthe</td></tr>
+      <tr><td>20</td><td>Orthosie</td></tr>
+      <tr><td>21</td><td>Thyone</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="jupiter-group">
+  <summary>Carme Group</summary>
+  <table class="jupiter-table">
+    <thead><tr><th>#</th><th>Name</th></tr></thead>
+    <tbody>
+      <tr><td>22</td><td>Carme</td></tr>
+      <tr><td>23</td><td>Taygete</td></tr>
+      <tr><td>24</td><td>Kalyke</td></tr>
+      <tr><td>25</td><td>Erinome</td></tr>
+      <tr><td>26</td><td>Isonoe</td></tr>
+      <tr><td>27</td><td>Kallichore</td></tr>
+      <tr><td>28</td><td>Eukelade</td></tr>
+      <tr><td>29</td><td>Aitne</td></tr>
+      <tr><td>30</td><td>Kale</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="jupiter-group">
+  <summary>Pasiphae Group</summary>
+  <table class="jupiter-table">
+    <thead><tr><th>#</th><th>Name</th></tr></thead>
+    <tbody>
+      <tr><td>31</td><td>Pasiphae</td></tr>
+      <tr><td>32</td><td>Callirrhoe</td></tr>
+      <tr><td>33</td><td>Megaclite</td></tr>
+      <tr><td>34</td><td>Autonoe</td></tr>
+      <tr><td>35</td><td>Sponde</td></tr>
+      <tr><td>36</td><td>Hegemone</td></tr>
+      <tr><td>37</td><td>Aoede</td></tr>
+      <tr><td>38</td><td>Cyllene</td></tr>
+      <tr><td>39</td><td>Arche</td></tr>
+      <tr><td>40</td><td>Helike</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="jupiter-group">
+  <summary>Other Notable Irregular Moons</summary>
+  <table class="jupiter-table">
+    <thead><tr><th>#</th><th>Name</th></tr></thead>
+    <tbody>
+      <tr><td>41</td><td>Valetudo</td></tr>
+      <tr><td>42</td><td>Carpo</td></tr>
+      <tr><td>43</td><td>Philophrosyne</td></tr>
+      <tr><td>44</td><td>Euporie</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<details class="jupiter-group">
+  <summary>Uncategorized / Recently Discovered</summary>
+  <table class="jupiter-table">
+    <thead><tr><th>#</th><th>Provisional Name</th></tr></thead>
+    <tbody>
+      <tr><td>45</td><td>S/2003 J2</td></tr>
+      <tr><td>46</td><td>S/2003 J3</td></tr>
+      <tr><td>47</td><td>S/2003 J4</td></tr>
+      <tr><td>48</td><td>S/2003 J5</td></tr>
+      <tr><td>49</td><td>S/2003 J9</td></tr>
+      <tr><td>50</td><td>S/2017 J1</td></tr>
+      <tr><td>51</td><td>S/2017 J2</td></tr>
+      <tr><td>52</td><td>S/2017 J3</td></tr>
+      <tr><td>53</td><td>S/2017 J4</td></tr>
+      <tr><td>54</td><td>S/2021 J1</td></tr>
+      <tr><td>55</td><td>S/2022 J1</td></tr>
+      <tr><td>56</td><td>S/2003 J10</td></tr>
+      <tr><td>57</td><td>S/2003 J11</td></tr>
+      <tr><td>58</td><td>S/2003 J12</td></tr>
+      <tr><td>59</td><td>S/2003 J15</td></tr>
+      <tr><td>60</td><td>S/2003 J16</td></tr>
+      <tr><td>61</td><td>S/2003 J17</td></tr>
+      <tr><td>62</td><td>S/2003 J18</td></tr>
+      <tr><td>63</td><td>S/2003 J19</td></tr>
+      <tr><td>64</td><td>S/2003 J20</td></tr>
+      <tr><td>65</td><td>S/2003 J21</td></tr>
+      <tr><td>66</td><td>S/2003 J22</td></tr>
+      <tr><td>67</td><td>S/2003 J23</td></tr>
+      <tr><td>68</td><td>S/2003 J24</td></tr>
+      <tr><td>69</td><td>S/2003 J25</td></tr>
+      <tr><td>70</td><td>S/2003 J26</td></tr>
+      <tr><td>71</td><td>S/2003 J27</td></tr>
+      <tr><td>72</td><td>S/2003 J28</td></tr>
+      <tr><td>73</td><td>S/2003 J29</td></tr>
+      <tr><td>74</td><td>S/2003 J30</td></tr>
+      <tr><td>75</td><td>S/2003 J31</td></tr>
+      <tr><td>76</td><td>S/2003 J32</td></tr>
+      <tr><td>77</td><td>S/2003 J33</td></tr>
+      <tr><td>78</td><td>S/2003 J34</td></tr>
+      <tr><td>79</td><td>S/2003 J35</td></tr>
+      <tr><td>80</td><td>S/2003 J36</td></tr>
+      <tr><td>81</td><td>S/2003 J37</td></tr>
+      <tr><td>82</td><td>S/2003 J38</td></tr>
+      <tr><td>83</td><td>S/2003 J39</td></tr>
+      <tr><td>84</td><td>S/2003 J40</td></tr>
+      <tr><td>85</td><td>S/2003 J41</td></tr>
+      <tr><td>86</td><td>S/2003 J42</td></tr>
+      <tr><td>87</td><td>S/2003 J43</td></tr>
+      <tr><td>88</td><td>S/2003 J44</td></tr>
+      <tr><td>89</td><td>S/2003 J45</td></tr>
+      <tr><td>90</td><td>S/2003 J46</td></tr>
+      <tr><td>91</td><td>S/2003 J47</td></tr>
+      <tr><td>92</td><td>S/2003 J48</td></tr>
+      <tr><td>93</td><td>S/2003 J49</td></tr>
+      <tr><td>94</td><td>S/2003 J50</td></tr>
+      <tr><td>95</td><td>S/2018 J1</td></tr>
+    </tbody>
+  </table>
+</details>
+
+<p>To see the full updated list of Jupiter's 95 moons, visit <a href="https://en.wikipedia.org/wiki/Moons_of_Jupiter" target="_blank" rel="noopener noreferrer">Wikipedia – Moons of Jupiter</a>.</p>
+    <p>&copy; 2025 | Written by Astropedia | All rights reserved</p>
+
+  </p>
+    </div>
+
+</body>
+</html>
