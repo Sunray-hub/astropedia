@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astropedia | News</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='a.ico') }}" type="image/x-icon">
+  </head>
+<body>
+
+<nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('news')}}" class="active">News</a></li>
+        <li><a href="{{url_for('search')}}">Search</a></li>
+        <li><a href="{{url_for('create_page')}}">Create A Page</a></li>
+        <li><a href="{{url_for('edit')}}">Edit A Page</a></li>
+    </ul>
+</nav>
+
+    <main>
+        <section>
+            <div id="Asteroid_news_block">
+              <img src="{{url_for('static', filename='243_ida_crop.jpg')}}" alt="243 Ida" id="ida">
+              <img src="{{url_for('static', filename='(253)_mathilde_crop.jpg')}}" alt="235 Mathilde" id="Mathilde">
+                <h1 id="news_page_asteroid_news">Asteroid News</h1>
+                {%if asteroids%}
+                <ul>
+                  {%for asteroid in asteroids%}
+                    <li>
+                        <strong>{{ asteroid.name }}</strong><br>
+                        Hazardous: {{ asteroid.hazardous }}<br>
+                        Diameter: {{ asteroid.diameter }} meters<br>
+                        Speed: {{ asteroid.speed }} km/h<br>
+                        Miss Distance: {{ asteroid.miss_distance }} km
+                    </li>
+                    <BR>
+                 {% endfor %}
+                 {%else%}
+                 <p>No asteroid data</p>
+                </ul>
+                {%endif%}
+                  
+
+            </div>
+        </section>
+
+        <!-- <section>
+            <div id="mars_weather">
+                <h1>Mars Weather</h1>
+                <h4>THIS SERVICE HAS SIGNIFICANT MISSING DATA DUE TO INSIGHT NEEDING TO MANAGE POWER USE.</h4>
+                <h4>This is a rough estimate of the weather. It cycles through existing data</h4>
+                <p>{{mars_day_web}}</p>
+                <p>{{min_temp_web}}</p>
+                <p>{{max_temp_web}}</p>
+            </div>
+        </section> -->
+        <section>
+            <div id="Solar_weather">
+<h2>Recent Space Weather Events (DONKI)</h2>
+{% for event_type, events in donki_web.items() %}
+  <h3>{{ event_type }}</h3>
+  {% for event in events %}
+    <p>
+      {% if event.error %}
+        ❌ {{ event.error }}
+      {% elif event.note %}
+        ℹ️ {{ event.note }}
+      {% else %}
+        Time: {{ event.get('beginTime', event.get('time', 'N/A')) }}<br>
+        {% if event.get('classType') %}
+          Type: {{ event['classType'] }}<br>
+        {% endif %}
+        {% if event.get('linkedEvents') %}
+          Linked Events: {{ event['linkedEvents'] | length }}
+        {% endif %}
+      {% endif %}
+    </p>
+  {% endfor %}
+{% endfor %}
+            </div>
+        </section>
+<section>
+
+    <div id="news_block">
+        <h2 id="news_block_heading">Latest Spaceflight News</h2>
+  <p><small><B>{{today_web}}<B></small></p>
+        <ul>
+        {% for article in article_web %}
+            <li>
+                <h3>{{ article.title }}</h3>
+                <p>{{ article.summary }}</p>
+                <a href="{{ article.url }}" target="_blank">Read More</a>
+                <p><small>Published: {{ article.published }}</small></p>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</section>
+    </main>
+    <footer>
+    <div>
+    <p> Made by Soluz Devlopers</p>
+    </div>
+</footer>
+    
+</body>
+</html>

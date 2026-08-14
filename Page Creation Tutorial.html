@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HTML, CSS & JavaScript Tutorial</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='a.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0b3d91, #1e5288);
+      color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: #142850;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      color: #f0f0f0;
+      text-shadow: 2px 2px 8px #000;
+    }
+    header p {
+      font-style: italic;
+      margin-top: 0.5rem;
+      color: #a8d0e6;
+    }
+ 
+    main {
+      
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #1e3c72;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 30px #0b3d91;
+    }
+
+    main section h2, main section h3 {
+      color: #ffd166;
+      border-bottom: 2px solid #ffd166;
+      padding-bottom: 0.2rem;
+      margin-top: 2rem;
+    }
+
+    main section p {
+      font-size: 1.1rem;
+      color: #f0f0f0;
+    }
+
+    main section code {
+      background: #23395d;
+      padding: 0.15rem 0.3rem;
+      border-radius: 5px;
+      font-family: 'Courier New', Courier, monospace;
+      color: #ffd166;
+    }
+
+    main section pre {
+      background: #142850;
+      padding: 1rem;
+      border-radius: 10px;
+      overflow-x: auto;
+      margin: 1rem 0;
+      box-shadow: inset 0 0 10px #0b3d91;
+    }
+
+    /* Try it Yourself Section */
+    .try-section {
+      background: #0b3d91;
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 2rem 0;
+      box-shadow: 0 0 20px #ffd166;
+    }
+    .try-section h4 {
+      color: #ffd166;
+      margin-top: 0;
+    }
+    .try-section textarea {
+      width: 100%;
+      height: 180px;
+      background: #1e3c72;
+      border: none;
+      border-radius: 8px;
+      color: #f0f0f0;
+      font-family: 'Courier New', monospace;
+      font-size: 1rem;
+      padding: 1rem;
+      resize: vertical;
+      box-shadow: inset 0 0 8px #0b3d91;
+    }
+    .try-section button {
+      margin-top: 1rem;
+      background: #ffd166;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      color: #142850;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    .try-section button:hover {
+      background: #ffb400;
+    }
+    .output-frame {
+      margin-top: 1rem;
+      border: 3px solid #ffd166;
+      border-radius: 10px;
+      width: 100%;
+      height: 250px;
+      background: #dedede;
+      box-shadow: 0 0 15px #ffd166;
+    }
+
+    /* Code highlight for keywords */
+    .keyword {
+      color: #ffd166;
+      font-weight: 700;
+    }
+
+    /* Links */
+    a {
+      color: #ffd166;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #a8d0e6;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+    }
+
+    /* Additional styles for sections content */
+
+    /* Planet card styles */
+    .planet-card {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      border-radius: 15px;
+      padding: 20px;
+      color: #f0f0f0;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+      max-width: 400px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .planet-card img {
+      border-radius: 50%;
+      width: 150px;
+      box-shadow: 0 0 15px #ffd166;
+    }
+    .planet-card h3 {
+      margin-top: 15px;
+      color: #ffd166;
+    }
+    .planet-card p {
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    /* Flexbox layout styles */
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 2rem 0;
+    }
+    .planet {
+      background: #203a43;
+      padding: 15px;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+      box-shadow: 0 0 10px #0b3d91;
+      color: #f0f0f0;
+    }
+    .planet img {
+      width: 100px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #ffd166;
+    }
+    .planet h3 {
+      color: #ffd166;
+      margin: 0.5rem 0;
+    }
+    h1{
+        padding-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+          <nav id="testbar">
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+    <label class="logo">Astropedia</label>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/usersearch">Search</a></li>
+      <li><a href="/create" class="active">Create A Page</a></li>
+      <li><a href="/edit">Edit A Page</a></li>
+    </ul>
+  </nav>
+  <h1>Astropedia Web Tutorial</h1>
+  <p>Learn HTML, CSS & JavaScript to build your own astronomy encyclopedia website</p>
+</header>
+
+<main>
+
+  <section>
+    <h2>1. HTML Basics</h2>
+    <p>HTML is the foundation of every webpage. It tells the browser what to show and how to structure content.</p>
+    <p>Example of a simple HTML page structure:</p>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;Astropedia&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to Astropedia&lt;/h1&gt;
+    &lt;p&gt;Your encyclopedia about space!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Create a simple HTML page</h4>
+      <textarea id="html-code-1">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Astropedia</title>
+  </head>
+  <body>
+    <h1>Welcome to Astropedia</h1>
+    <p>Your encyclopedia about space!</p>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('html-code-1', 'output-1')">Run HTML</button>
+      <iframe id="output-1" class="output-frame"></iframe>
+    </div>
+
+    <h2>2. CSS Styling</h2>
+    <p>CSS controls how your page looks — colors, fonts, layout, spacing, and more.</p>
+    <p>Example: Adding color and center alignment</p>
+    <pre>
+&lt;style&gt;
+  body {
+    background-color: #000022;
+    color: #ffdd00;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+&lt;/style&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Style your Astropedia page</h4>
+      <textarea id="css-code-2">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Astropedia Styled</title>
+    <style>
+      body {
+        background-color: #000022;
+        color: #ffdd00;
+        text-align: center;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to Astropedia</h1>
+    <p>Your encyclopedia about space!</p>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('css-code-2', 'output-2')">Run CSS</button>
+      <iframe id="output-2" class="output-frame"></iframe>
+    </div>
+
+    <h2>3. JavaScript Interactivity</h2>
+    <p>JavaScript adds behavior — you can respond to clicks, update content dynamically, and more.</p>
+    <p>Example: Click a button to show an alert</p>
+    <pre>
+&lt;button onclick="alert('Hello from Astropedia!')"&gt;Click me&lt;/button&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Interactive Button</h4>
+      <textarea id="js-code-3">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Astropedia JS</title>
+  </head>
+  <body>
+    <h1>Welcome to Astropedia</h1>
+    <button onclick="alert('Hello from Astropedia!')">Click me</button>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('js-code-3', 'output-3')">Run JavaScript</button>
+      <iframe id="output-3" class="output-frame"></iframe>
+    </div>
+
+    <h2>4. Build a Planet Card</h2>
+    <p>Combine HTML and CSS to create a nice card about a planet.</p>
+    <pre>
+&lt;div class="planet-card"&gt;
+  &lt;img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="Earth" /&gt;
+  &lt;h3&gt;Earth&lt;/h3&gt;
+  &lt;p&gt;Our home planet, the third from the Sun.&lt;/p&gt;
+&lt;/div&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Planet Card</h4>
+      <textarea id="planet-code-4">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Planet Card</title>
+    <style>
+      .planet-card {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        border-radius: 15px;
+        padding: 20px;
+        color: #f0f0f0;
+        max-width: 400px;
+        margin: 2rem auto;
+        text-align: center;
+        box-shadow: 0 8px 15px rgba(0,0,0,0.5);
+      }
+      .planet-card img {
+        border-radius: 50%;
+        width: 150px;
+        box-shadow: 0 0 15px #ffd166;
+      }
+      .planet-card h3 {
+        margin-top: 15px;
+        color: #ffd166;
+      }
+      .planet-card p {
+        font-size: 1.1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="planet-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="Earth" />
+      <h3>Earth</h3>
+      <p>Our home planet, the third from the Sun.</p>
+    </div>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('planet-code-4', 'output-4')">Run Planet Card</button>
+      <iframe id="output-4" class="output-frame"></iframe>
+    </div>
+
+    <h2>5. Layout with Flexbox</h2>
+    <p>Flexbox helps you arrange items in rows or columns easily.</p>
+    <pre>
+&lt;div class="container"&gt;
+  &lt;div class="planet"&gt;
+    &lt;img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="Earth"&gt;
+    &lt;h3&gt;Earth&lt;/h3&gt;
+  &lt;/div&gt;
+  &lt;div class="planet"&gt;
+    &lt;img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1024px-OSIRIS_Mars_true_color.jpg" alt="Mars"&gt;
+    &lt;h3&gt;Mars&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Flexbox Layout</h4>
+      <textarea id="flex-code-5">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Planets Flexbox</title>
+    <style>
+      .container {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 2rem 0;
+      }
+      .planet {
+        background: #203a43;
+        padding: 15px;
+        border-radius: 10px;
+        width: 200px;
+        text-align: center;
+        color: #f0f0f0;
+        box-shadow: 0 0 10px #0b3d91;
+      }
+      .planet img {
+        width: 100px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #ffd166;
+      }
+      .planet h3 {
+        color: #ffd166;
+        margin: 0.5rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="planet">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg" alt="Earth">
+        <h3>Earth</h3>
+      </div>
+      <div class="planet">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1024px-OSIRIS_Mars_true_color.jpg" alt="Mars">
+        <h3>Mars</h3>
+      </div>
+    </div>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('flex-code-5', 'output-5')">Run Flexbox</button>
+      <iframe id="output-5" class="output-frame"></iframe>
+    </div>
+
+  </section>
+    <section>
+    <!-- Existing content from before here -->
+
+    <!-- 6. JavaScript DOM Manipulation -->
+    <h2>6. JavaScript: DOM Manipulation</h2>
+    <p>Change page content dynamically using JavaScript.</p>
+    <pre>
+&lt;button id="btn"&gt;Change Text&lt;/button&gt;
+&lt;p id="text"&gt;This is original text.&lt;/p&gt;
+
+&lt;script&gt;
+  document.getElementById('btn').addEventListener('click', () =&gt; {
+    document.getElementById('text').textContent = 'Text changed by JavaScript!';
+  });
+&lt;/script&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Change text on button click</h4>
+      <textarea id="dom-js-6">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DOM Manipulation</title>
+  </head>
+  <body>
+    <button id="btn">Change Text</button>
+    <p id="text">This is original text.</p>
+
+    <script>
+      document.getElementById('btn').addEventListener('click', () => {
+        document.getElementById('text').textContent = 'Text changed by JavaScript!';
+      });
+    </script>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('dom-js-6', 'output-6')">Run JavaScript</button>
+      <iframe id="output-6" class="output-frame"></iframe>
+    </div>
+
+    <!-- 7. Responsive Design with Media Queries -->
+    <h2>7. Responsive Design</h2>
+    <p>Make your site look great on phones, tablets, and desktops with media queries.</p>
+    <pre>
+&lt;style&gt;
+  body {
+    background: #203a43;
+    color: #ffd166;
+  }
+  .container {
+    width: 80%;
+    margin: auto;
+    background: #0b3d91;
+    padding: 1rem;
+  }
+  @media (max-width: 600px) {
+    .container {
+      background: #ffb400;
+      color: #142850;
+    }
+  }
+&lt;/style&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Change background color on small screens</h4>
+      <textarea id="responsive-css-7">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Responsive Design</title>
+    <style>
+      body {
+        background: #203a43;
+        color: #ffd166;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        background: #0b3d91;
+        padding: 1rem;
+        border-radius: 10px;
+        text-align: center;
+      }
+      @media (max-width: 600px) {
+        .container {
+          background: #ffb400;
+          color: #142850;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Astropedia Responsive Box</h2>
+      <p>Resize the browser window to see the background color change!</p>
+    </div>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('responsive-css-7', 'output-7')">Run Responsive CSS</button>
+      <iframe id="output-7" class="output-frame"></iframe>
+    </div>
+
+    <!-- 8. HTML Forms and Validation -->
+    <h2>8. Forms & Validation</h2>
+    <p>Collect user input and validate it before submission.</p>
+    <pre>
+&lt;form&gt;
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" required /&gt;
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Simple email form</h4>
+      <textarea id="form-html-8">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Form Example</title>
+  </head>
+  <body>
+    <h2>Subscribe to Astropedia Newsletter</h2>
+    <form onsubmit="alert('Thanks for subscribing!'); return false;">
+      <label for="email">Email:</label><br/>
+      <input type="email" id="email" required placeholder="your.email@example.com" />
+      <br/><br/>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('form-html-8', 'output-8')">Run Form</button>
+      <iframe id="output-8" class="output-frame"></iframe>
+    </div>
+
+    <!-- 9. Embedding External Content -->
+    <h2>9. Embed NASA Video</h2>
+    <p>You can embed videos or other content using &lt;iframe&gt; tags.</p>
+    <pre>
+&lt;iframe width="560" height="315" src="https://plus.nasa.gov/video/space-out-moon-phases/" 
+title="NASA Video" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Embed a NASA video</h4>
+      <textarea id="embed-video-9">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>NASA Video Embed</title>
+  </head>
+  <body>
+    <h2>Watch NASA Video</h2>
+    <iframe width="560" height="315" 
+      src="https://plus.nasa.gov/video/space-out-moon-phases/" 
+      title="NASA Video" frameborder="0" allowfullscreen>
+    </iframe>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('embed-video-9', 'output-9')">Run Embed</button>
+      <iframe id="output-9" class="output-frame"></iframe>
+    </div>
+
+    <!-- 10. CSS Animation -->
+    <h2>10. Simple CSS Animation</h2>
+    <p>Animate your page elements for a lively effect.</p>
+    <pre>
+&lt;style&gt;
+  .rotating-star {
+    display: inline-block;
+    font-size: 3rem;
+    color: #ffd166;
+    animation: spin 4s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+&lt;/style&gt;
+&lt;div class="rotating-star"&gt;⭐&lt;/div&gt;
+    </pre>
+
+    <div class="try-section">
+      <h4>Try it yourself: Rotating star animation</h4>
+      <textarea id="animation-css-10">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSS Animation</title>
+    <style>
+      .rotating-star {
+        display: inline-block;
+        font-size: 3rem;
+        color: #ffd166;
+        animation: spin 4s linear infinite;
+      }
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rotating-star">⭐</div>
+  </body>
+</html>
+      </textarea>
+      <button onclick="runCode('animation-css-10', 'output-10')">Run Animation</button>
+      <iframe id="output-10" class="output-frame"></iframe>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Astropedia — Made with ❤️ for space lovers
+</footer>
+
+<script>
+  function runCode(textareaId, iframeId) {
+    const code = document.getElementById(textareaId).value;
+    const iframe = document.getElementById(iframeId);
+    iframe.srcdoc = code;
+  }
+</script>
+
+</body>
+</html>

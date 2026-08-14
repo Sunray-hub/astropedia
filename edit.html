@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astropedia | Edit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='a.ico') }}" type="image/x-icon">
+</head>
+<body>
+    <header>
+<nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('news')}}">News</a></li>
+        <li><a href="{{url_for('search')}}" >Search</a></li>
+        <li><a href="{{url_for('create_page')}}">Create A Page</a></li>
+        <li><a href="{{url_for('edit')}}" class="active">Edit A Page</a></li>
+    </ul>
+</nav>
+</header>
+
+    <div id="prt-userform">
+    <form method="GET" id="userform">
+          <p id="searchq">Search:</p> <input name="q" value="{{ query }}" id="q">
+  <button type="submit" id="submitget">Go</button>
+    </form>
+
+<p id="disclamer">If there are more than one article of the same name, they will be separated in the contents textbox. Delete which one will not relavent.</p>
+<br>
+<form action="/edit" method="POST" id="edit-submit">
+    <div class="prt-filename">
+    <textarea style="resize: both; width: 200px; height: 100px;" name="filename" id="filename" placeholder="Filename" >
+    {{filename}}
+    </textarea>
+    </div>
+    <textarea style="resize: both; width: 1000px; height: 1000px;" name="article_edited_content" id="article_edited_content" placeholder="Article Content" >
+    {{content}}
+    </textarea>
+    <Br>
+    <input type="submit" name="edit-submit-button" id="edit-submit-button">
+
+
+</form>
+<footer>
+    <div>
+    <p> Made by Soluz Devlopers</p>
+    </div>
+</footer>
+</body>
+</html>

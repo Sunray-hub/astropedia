@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astropedia | Create a page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='a.ico') }}" type="image/x-icon">
+<script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>
+
+</head>
+<body>
+<header>
+<nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('news')}}">News</a></li>
+        <li><a href="{{url_for('search')}}" >Search</a></li>
+        <li><a href="{{url_for('create_page')}}" class="active">Create A Page</a></li>
+        <li><a href="{{url_for('edit')}}" >Edit A Page</a></li>
+    </ul>
+</nav>
+</header>
+
+<form action="/create" method="POST" id="createform">
+  <br>
+  <input type="text" name="title" placeholder="Enter title for your article" id="titleform">
+  <br>
+  
+  <!-- Article Content (Rich text) -->
+
+  <textarea name="article_content" id="article_content" placeholder="Article Content" style="resize: both; width: 1000px; height: 100px;">
+<h1><!-- Your heading here --></h1>
+<p><!-- Article Content here --></p>
+<p><small><!-- Pseudonym here --></small></p>
+</textarea>
+				<script>
+						CKEDITOR.replace( 'article_content' );
+				</script>
+
+  <br>
+
+  <!-- Optional CSS Content -->
+  <textarea style="resize: both; width: 1000px; height: 100px;" name="article_css" id="article_content_css" placeholder="Article CSS">
+<style>
+/* Custom article styling */
+</style>
+  </textarea>
+
+  <br>
+  <input type="submit" value="Create" id="create">
+
+</form>
+<footer>
+    <div>
+    <p> Made by ZenDo Devlopers</p>
+    </div>
+</footer>
+</body>
+</html>

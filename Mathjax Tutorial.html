@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MathJax Tutorial - Complete Guide</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='a.ico') }}" type="image/x-icon">
+  <!-- MathJax CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      background: #f0f4f8;
+      color: #333;
+      color: #000000;
+      border-radius: 20px;
+    }
+    h1, h2, h3 {
+      color: #1a237e;
+    }
+    code {
+      background-color: #e0e0e0;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: Consolas, monospace;
+        color: black
+    }
+    pre {
+      background-color: #263238;
+      color: black;
+      padding: 1rem;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+    .example {
+      background-color: #e8eaf6;
+      border-left: 4px solid #1a237e;
+      margin: 1rem 0;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+    .note {
+      background-color: #fffde7;
+      border-left: 4px solid #fbc02d;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 4px;
+    }
+        #try-section {
+      margin-top: 3rem;
+      padding: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      background-color: #fafafa;
+      max-width: 700px;
+    }
+
+    #latex-input {
+      width: 100%;
+      height: 120px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 1.1em;
+      padding: 10px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      resize: vertical;
+      margin-bottom: 1rem;
+    }
+
+    #rendered-math {
+      padding: 10px;
+      border: 1px solid #bbb;
+      min-height: 2em;
+      background-color: white;
+      border-radius: 5px;
+      font-size: 1.2em;
+    }
+        table {
+      border-collapse: collapse;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 700px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: left;
+      vertical-align: middle;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+    td.code {
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #f5f5f5;
+      color: black;
+      white-space: nowrap;
+    }
+    h1{
+        padding-top: 40px;
+    }
+  </style>
+</head>
+<body>
+      <nav id="testbar">
+    <input type="checkbox" id="check" />
+    <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+    <label class="logo">Astropedia</label>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/news">News</a></li>
+      <li><a href="/usersearch" >Search</a></li>
+      <li><a href="/create"class="active">Create A Page</a></li>
+      <li><a href="/edit">Edit A Page</a></li>
+    </ul>
+  </nav>
+  <h1>MathJax Tutorial - Complete Guide</h1>
+
+  <p>
+    MathJax is a powerful JavaScript library for displaying mathematical notation on web pages. It supports
+    LaTeX, MathML, and AsciiMath input and renders beautiful, scalable math in all modern browsers.
+  </p>
+
+  <h2>1. Including MathJax in Your Page</h2>
+  <p>Add this script in your <code>&lt;head&gt;</code> to load MathJax from CDN:</p>
+  <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async&gt;&lt;/script&gt;</code></pre>
+
+  <div class="note">
+    <strong>Note:</strong> The <code>async</code> attribute loads MathJax asynchronously, so it doesn't block page rendering.
+  </div>
+
+  <h2>2. Writing Math</h2>
+  <p>MathJax supports two main ways to write math:</p>
+  <ul>
+    <li><strong>Inline math</strong>: Use <code>\(...\)</code> or <code>$...$</code> to include math within text.</li>
+    <li><strong>Display math (block math)</strong>: Use <code>\[...\]</code> or <code>$$...$$</code> to display math on its own centered line.</li>
+  </ul>
+
+  <h3>Examples</h3>
+  <div class="example">
+    Inline math example: When \(a \ne 0\), the quadratic formula is \(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\).<br><br>
+
+    Display math example:<br>
+    \[
+      \int_a^b f(x) \, dx = F(b) - F(a)
+    \]
+  </div>
+
+  <h2>3. Common MathJax LaTeX Commands</h2>
+  <ul>
+    <li><code>\frac{numerator}{denominator}</code>: Fractions</li>
+    <li><code>\sqrt{expression}</code>: Square roots</li>
+    <li><code>\sum_{i=1}^n</code>: Summations</li>
+    <li><code>\int_a^b</code>: Integrals</li>
+    <li><code>\alpha, \beta, \gamma, \pi</code>: Greek letters</li>
+    <li><code>\sin, \cos, \log, \exp</code>: Common functions</li>
+  </ul>
+
+    <h3>Math Symbols and How to Write Them</h3>
+  <p>Here are some common math symbols and how to write them in LaTeX (inside MathJax):</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Symbol</th>
+        <th>LaTeX Code</th>
+        <th>Rendered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Plus / Minus</td><td class="code">+ , -</td><td> \( +, - \)</td></tr>
+      <tr><td>Multiplication</td><td class="code">\times</td><td> \( \times \)</td></tr>
+      <tr><td>Division</td><td class="code">\div</td><td> \( \div \)</td></tr>
+      <tr><td>Equals</td><td class="code">=</td><td> \( = \)</td></tr>
+      <tr><td>Not equals</td><td class="code">\neq</td><td> \( \neq \)</td></tr>
+      <tr><td>Less than / Greater than</td><td class="code">&lt; , &gt;</td><td> \( <, > \)</td></tr>
+      <tr><td>Less or equal / Greater or equal</td><td class="code">\leq , \geq</td><td> \( \leq, \geq \)</td></tr>
+      <tr><td>Approximately</td><td class="code">\approx</td><td> \( \approx \)</td></tr>
+      <tr><td>Infinity</td><td class="code">\infty</td><td> \( \infty \)</td></tr>
+      <tr><td>Square root</td><td class="code">\sqrt{a}</td><td> \( \sqrt{a} \)</td></tr>
+      <tr><td>nth root</td><td class="code">\sqrt[n]{a}</td><td> \( \sqrt[n]{a} \)</td></tr>
+      <tr><td>Fractions</td><td class="code">\frac{a}{b}</td><td> \( \frac{a}{b} \)</td></tr>
+      <tr><td>Summation</td><td class="code">\sum_{i=1}^n i^2</td><td> \( \sum_{i=1}^n i^2 \)</td></tr>
+      <tr><td>Integral</td><td class="code">\int_a^b x^2 dx</td><td> \( \int_a^b x^2 \, dx \)</td></tr>
+      <tr><td>Greek letters</td><td class="code">\alpha, \beta, \gamma, \pi</td><td> \( \alpha, \beta, \gamma, \pi \)</td></tr>
+      <tr><td>Superscript / Subscript</td><td class="code">a^2, x_i</td><td> \( a^2, x_i \)</td></tr>
+      <tr><td>Summation with limits</td><td class="code">\sum_{k=0}^\infty \frac{1}{2^k}</td><td> \( \sum_{k=0}^\infty \frac{1}{2^k} \)</td></tr>
+      <tr><td>Logarithm</td><td class="code">\log(x)</td><td> \( \log(x) \)</td></tr>
+      <tr><td>Exponentials</td><td class="code">e^{i\pi} + 1 = 0</td><td> \( e^{i\pi} + 1 = 0 \)</td></tr>
+      <tr><td>Limits</td><td class="code">\lim_{x \to 0} \frac{\sin x}{x}</td><td> \( \lim_{x \to 0} \frac{\sin x}{x} \)</td></tr>
+      <tr><td>Partial derivatives</td><td class="code">\frac{\partial f}{\partial x}</td><td> \( \frac{\partial f}{\partial x} \)</td></tr>
+    </tbody>
+  </table>
+
+
+  <h2>4. Configuring MathJax</h2>
+  <p>You can customize MathJax behavior by adding a configuration script before loading MathJax.</p>
+  <pre><code>&lt;script&gt;
+window.MathJax = {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    macros: {
+      RR: '\\mathbb{R}',
+      bold: ['{\\bf #1}', 1]
+    }
+  },
+  options: {
+    skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+  }
+};
+&lt;/script&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async&gt;&lt;/script&gt;</code></pre>
+
+  <p>This example:</p>
+  <ul>
+    <li>Defines inline and display math delimiters.</li>
+    <li>Adds custom macros <code>\RR</code> and <code>\bold</code>.</li>
+    <li>Prevents MathJax from processing inside certain HTML tags.</li>
+  </ul>
+
+  <h2>5. Using MathJax in JavaScript</h2>
+  <p>If you dynamically add math content to your page, call <code>MathJax.typeset()</code> to re-render math:</p>
+  <pre><code>// Add math to a div
+const div = document.getElementById('dynamicMath');
+div.innerHTML = 'Here is some math: \\( e^{i\\pi} + 1 = 0 \\)';
+// Rerender math in the document
+MathJax.typeset();
+</code></pre>
+
+  <div id="dynamicMath" class="example"></div>
+  <button id="addMathBtn">Add Dynamic Math</button>
+
+  <script>
+    document.getElementById('addMathBtn').addEventListener('click', () => {
+      const div = document.getElementById('dynamicMath');
+      div.innerHTML = 'Dynamic math added: \\[ \\sum_{k=1}^{n} k = \\frac{n(n+1)}{2} \\]';
+      // Trigger MathJax to process the new math
+      MathJax.typeset();
+    });
+  </script>
+  
+
+  <h2>6. Troubleshooting Tips</h2>
+  <ul>
+    <li>Make sure MathJax script is loaded before rendering math.</li>
+    <li>Use the correct delimiters (<code>\(...\)</code> for inline, <code>\[...\]</code> for display).</li>
+    <li>If math doesn’t render, call <code>MathJax.typeset()</code> after dynamically adding math.</li>
+    <li>Check browser console for errors.</li>
+  </ul>
+
+    <h2>7. Try It Yourself</h2>
+  <div id="try-section">
+    <label for="latex-input"><strong>Enter LaTeX math code here (without delimiters):</strong></label>
+    <textarea id="latex-input" placeholder="Type something like: \int_0^1 x^2 \, dx"></textarea>
+    <div id="rendered-math">Your rendered math will appear here.</div>
+  </div>
+
+  <script>
+    const input = document.getElementById('latex-input');
+    const output = document.getElementById('rendered-math');
+
+    // Function to render math inside output div using MathJax
+    function renderMath() {
+      const tex = input.value.trim();
+      if (tex === '') {
+        output.textContent = 'Your rendered math will appear here.';
+        return;
+      }
+
+      // Set output content wrapped in display math delimiters
+      output.textContent = `\\[${tex}\\]`;
+
+      // Typeset the output element with MathJax
+      if (window.MathJax) {
+        MathJax.typesetPromise([output]).catch((err) => console.log(err.message));
+      }
+    }
+
+    // Render on input change with slight debounce
+    let debounceTimer;
+    input.addEventListener('input', () => {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(renderMath, 300);
+    });
+
+    // Initial render (empty)
+    renderMath();
+  </script>
+
+
+  <h2>8. Resources and Documentation</h2>
+  <ul>
+    <li><a href="https://mathjax.org/" target="_blank" rel="noopener">Official MathJax Website</a></li>
+    <li><a href="https://docs.mathjax.org/en/latest/" target="_blank" rel="noopener">MathJax Documentation</a></li>
+    <li><a href="https://math.meta.stackexchange.com/questions/5020/mathjax-basic-tutorial-and-quick-reference" target="_blank" rel="noopener">MathJax Quick Reference (StackExchange)</a></li>
+  </ul>
+
+  <footer style="margin-top: 4rem; font-size: 0.9rem; text-align: center; color: #777;">
+    &copy; 2025 MathJax Tutorial by Astropedia
+  </footer>
+</body>
+</html>

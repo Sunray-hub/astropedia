@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for("static", filename="style.css")}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='a.ico') }}" type="image/x-icon">
+    <title>Astropedia | Search</title>
+</head>
+<body>
+<header>
+<nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('news')}}">News</a></li>
+        <li><a href="{{url_for('search')}}" class="active">Search</a></li>
+        <li><a href="{{url_for('create_page')}}">Create A Page</a></li>
+        <li><a href="{{url_for('edit')}}">Edit A Page</a></li>
+    </ul>
+</nav>
+</header>
+<div class="usersearch">
+    <div id="prt-userform">
+    <form method="GET" id="userform">
+          <p id="searchq">Search:</p> <input name="q" value="{{ query }}" id="q">
+  <button type="submit" id="submitget">Go</button>
+    </form>
+    </div>
+    <div id="results">
+    <ul>
+  {% for result in results %}
+    <li><a href="{{ url_for('view_page', title=result) }}">{{ result }}</a></li>
+  {% endfor %}
+
+</ul>
+</div>
+</div>
+<footer>
+    <div>
+    <p> Made by Soluz Devlopers</p>
+    </div>
+</footer>
+</body>
+</html>

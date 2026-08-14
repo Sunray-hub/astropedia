@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astropedia | Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='a.ico') }}" type="image/x-icon">
+</head>
+<body>
+
+<header>
+<nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="{{url_for('index')}}">Home</a></li>
+        <li><a href="{{url_for('news')}}">News</a></li>
+        <li><a href="{{url_for('search')}}" class="active">Search</a></li>
+        <li><a href="{{url_for('create_page')}}">Create A Page</a></li>
+        <li><a href="{{url_for('edit')}}">Edit A Page</a></li>
+    </ul>
+
+
+</nav>
+</header>
+<div class="search-box">
+<div class="prt-ufo1">
+          <form action="/search" method="POST" id="search-form-api">
+          <input type="text" name="content" id="content">
+          <input type="number" name="line_num" id="line_num">
+          <input type="submit" id="searchbtn">
+          </form>
+  <img src="{{ url_for('static', filename='ufo.png') }}" alt="UFO Image" id="ufo1">
+</div>
+
+<h1>Wikipedia</h1>
+<p>{{ ans }}</p>
+
+<hr>
+
+<h1>Britannica</h1>
+{% if link %}
+  <a href="{{ link }}" target="_blank">{{ link }}</a>
+  <hr>
+{% endif %}
+
+{% if ans %}
+  <p>If you are not getting your desired result, then try the following things:</p>
+  <ul>
+    <li>If it is a plural noun (suffix not included), then try a singular noun</li>
+    <li>Try related terms</li>
+  </ul>
+{% endif %}
+
+<a href="{{ url_for('usersearch') }}" target="_self">Try searching from user inputed articles</a>
+</div>
+<footer>
+    <div>
+    <p> Made by Soluz Devlopers</p>
+    </div>
+</footer>
+</body>
+</html>

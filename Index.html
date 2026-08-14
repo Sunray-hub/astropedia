@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astropedia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+   <link rel="icon" href="{{ url_for('static', filename='a.ico') }}" type="image/x-icon">
+    <style>
+                #testbar{
+    
+    
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #1f1f1f;
+    height: 80px;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    border-bottom:2px solid #f26a4b;;
+}
+.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+}
+#testbar ul{
+    float: right;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    color: white;
+    
+}
+#testbar ul li form {
+    display: flex;
+    align-items: center;
+}
+#testbar input,
+#testbar button {
+    margin: 0 5px;
+    font-size: 16px;
+}
+#testbar ul li {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+
+#testbar ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+    padding-bottom: 20px;
+}
+#testbar ul li a{
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+    padding: 7px 13px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background-color: #0044cc;
+    transition: .5s ease-in-out;
+}
+
+.checkbtn{
+    color: white;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+display: none;
+}
+@media (max-width:952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    #testbar ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width:858px){
+    .checkbtn{
+        display: block;
+    }
+#testbar ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-color: #2c3e50;
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all .5s;
+    flex-direction: column;
+}
+    #testbar ul li{
+        display: block;
+    }
+    #testbar ul li a{
+        font-size: 20px;
+    }
+#testbar ul li a:hover, a.active {
+    background: none;
+    color: #0082e6;
+}
+#check:checked ~ ul{
+    left: 0;
+}
+}
+   
+    </style>
+</head>
+<body>
+<nav id="testbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">Astropedia</label>
+    <ul>
+        <li><a href="{{url_for('index')}}" class="active">Home</a></li>
+        <li><a href="{{url_for('news')}}">News</a></li>
+        <li><a href="{{url_for('search')}}">Search</a></li>
+        <li><a href="{{url_for('create_page')}}">Create A Page</a></li>
+        <li><a href="{{url_for('edit')}}">Edit A Page</a></li>
+    </ul>
+</nav>
+<br>
+<div>
+<IMG src="{{url_for('static', filename='ASTROPEDIA, ASTRONOMY FOR EVERYONE.png')}}" id="intropic"></IMG>
+</div>    
+
+<div class="info">
+    
+    <div class="headers">
+    <h1 id="introastro">Astropedia</h1>
+    <h1 id="hindiintroastro">व्योमपाइडेया</h1>
+   </div>
+    
+    <p id="paraastro"><b>Astropedia or व्योमपाइडेया</b>(pronouced as vyompaideya) <b>is a free website which gives you a collection of information from different websites and user input.</b></p>
+
+</div>
+
+
+
+
+<div>
+    
+    <img src="{{ url_for('static', filename='ufo.png') }}" alt="UFO Image" id="ufo">
+    <br>
+    <br>
+    <div class="cnt-audio">
+    <audio controls autoplay id="audio">
+        <source src="{{ url_for('static', filename='speech.mp3') }}" type="audio/mpeg" id="audio1">
+        Your browser does not support the audio element.
+    </audio>
+    </div>
+</div>
+
+<div class="boxbtn">
+<a href="{{url_for('search')}}" class=btn> Go to Search Page </a>
+</div>
+
+</form>
+
+<div class="asteroid_news">
+    <h1 id="asteroid_news"><a href="{{url_for('news')}}" id="asteroid_news">Asteroid News</a></h1>
+    <p>{{name_web}}</p>
+    <p>{{hazardous_web}}</p>
+    <p>{{diameter_web}}</p>
+    <p>{{speed_web}}</p>
+    <p>{{miss_distance_web}}</p>
+    <img src="{{url_for('static', filename='243_ida_crop.jpg')}}">
+ </div>
+ <div class="apod">
+    <h1>{{data.title}}</h1>
+    <p><strong>Date:</strong> {{ data.date }}</p>
+    <img src="{{ data.url }}" alt="APOD image" style="max-width: 100%;">
+    <p>{{ data.explanation }}</p>
+
+</div>
+<div id="ifram-div">
+<h1>Star Map</h1>
+<iframe src="https://stellarium-web.org/" width="900" height="700"></iframe>
+</div>
+<footer>
+    <div>
+    <p> Made by Soluz Devlopers</p>
+    </div>
+</footer>
+</body>
+</html>
